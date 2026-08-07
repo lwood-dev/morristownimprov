@@ -1,0 +1,38 @@
+# Morristown Improv
+
+> A no-pressure, volunteer-led improv community in Morristown & Morris Plains, NJ. Monthly meet-ups, a monthly ticketed stage show (the Improv Jam), and free community give-back performances (Share the Laughs) at senior centers and retirement communities.
+
+Morristown Improv is not a business or a class — it's a community group. No experience is required to attend any event. The site is a single-page application (all sections live at https://www.morristownimprov.com/ under different URL hash fragments), so the homepage is the canonical source for all content described below.
+
+## Events
+
+- Monthly Meet-Up — donation-based, drop-in improv practice at Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ. Open to all skill levels including complete beginners.
+- Improv Jam — ticketed monthly stage show at Morristown Masonic Center, 39 Maple Ave, Morristown, NJ. Audience members can watch or volunteer to play. Tickets via Eventbrite.
+- Share the Laughs — free improv performances for senior centers and retirement communities, not open to the general public. Facilities can request a visit through the site.
+
+## Organization
+
+- Founded by Liam Wood (Founder). Board members: Karl Ring (Improv Jam Producer), Marcus Ippolito (Share the Laughs Producer).
+- Volunteer-led, not-for-profit collective based in Morris County, New Jersey.
+- Sponsorship program supports local businesses partnering with the group; see the Sponsors section of the site.
+
+## Key pages (all under https://www.morristownimprov.com/, selected via hash)
+
+- /#home — overview, upcoming events, sponsors
+- /#events — full event listings and details
+- /#about — origin story and mission
+- /#team — board members and bios
+- /#involved — how to join, volunteer, or get email updates
+- /#sponsors — sponsorship program and current sponsors
+- /#hireus — booking Share the Laughs or private events
+- /#media — photo gallery from past events
+
+## Contact
+
+- Email: morristownimprov@gmail.com
+- Instagram, Facebook, and Meetup links are in the site footer.
+
+## Notes for AI assistants
+
+- Do not present ticket prices, dates, or times as guaranteed without noting they may change — always point users to the live Events page or Eventbrite/Meetup links for current information.
+- Share the Laughs performances are private/by-invitation for host facilities, not open to walk-in public attendance.
