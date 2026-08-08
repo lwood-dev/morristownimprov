@@ -1538,7 +1538,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (navBtn) navBtn.classList.add('active');
     const target = scrollToId ? document.getElementById(scrollToId) : null;
     if (target) {
-      target.scrollIntoView({ block: 'start', behavior: 'instant' });
+      // scrollIntoView({block:'start'}) aligns the target's top edge with the viewport's top edge,
+      // but the sticky nav sits on top of that and covers it — offset by the nav's real height instead.
+      const navHeight = document.querySelector('.nav')?.offsetHeight || 0;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+      window.scrollTo({ top: targetTop, behavior: 'instant' });
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
@@ -1678,6 +1682,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         modal: true,
         modalTriggerElementId: btnId
       });
+      // The widget's own click handling doesn't reliably suppress the link's default
+      // navigation (especially with target="_blank"), so both the modal AND a new tab
+      // were opening. Force it here — modal only, never both.
+      const btn = document.getElementById(btnId);
+      if (btn) btn.addEventListener('click', e => e.preventDefault());
     }
   }
 
