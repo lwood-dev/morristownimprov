@@ -28,6 +28,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --sage: #4ECDC4;
     --sage-soft: #7FDDD6;
     --terracotta: #FF6B5B;
+    --violet: #A78BFA;
+    --violet-soft: #C4B5FD;
     --line: rgba(255,255,255,0.12);
     --line-strong: rgba(255,255,255,0.22);
 
@@ -224,6 +226,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .btn-secondary:hover { border-color: var(--paper); background: rgba(250,246,240,0.05); }
   .btn-sage { background: var(--sage); color: var(--ink); }
   .btn-sage:hover { box-shadow: 0 8px 24px rgba(78,205,196,0.3); }
+  .btn-violet { background: var(--violet); color: var(--ink); }
+  .btn-violet:hover { box-shadow: 0 8px 24px rgba(167,139,250,0.3); }
   .btn-block { width: 100%; justify-content: center; }
 
   /* ============ WINDOW CARD — signature element ============ */
@@ -431,8 +435,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .event-date-chip { display: inline-block; background: var(--amber); color: var(--ink); font-family: var(--display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 8px; margin-bottom: 8px; }
   .event-badge { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 13px; border-radius: 20px; white-space: nowrap; }
   .event-badge.free { background: rgba(78,205,196,0.18); color: var(--sage-soft); }
-  .event-badge.ticket { background: rgba(255,107,91,0.18); color: #FF9587; }
-  .event-badge.private { background: rgba(255,210,63,0.18); color: var(--amber-soft); }
+  .event-badge.ticket { background: rgba(255,210,63,0.18); color: var(--amber-soft); }
+  .event-badge.private { background: rgba(167,139,250,0.18); color: var(--violet-soft); }
   .event-meta { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-top: 6px; }
   .event-meta li { font-size: 0.92rem; color: var(--paper-dim); display: flex; gap: 10px; }
   .event-meta li strong { color: var(--paper); font-weight: 600; min-width: 84px; flex-shrink: 0; }
@@ -848,11 +852,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="day" id="uncStlDay">30</div>
                 </div>
                 <div class="up-next-info">
-                  <span class="tag">Share the Laughs · Private Event</span>
+                  <span class="tag">Share the Laughs · Private Events</span>
                   <h3 id="uncStlTitle">Chatham Senior Center</h3>
                   <p style="margin:0; font-size: 0.92rem;" id="uncStlDetail">Free community give-back show — not open to the public.</p>
                 </div>
-                <button class="btn btn-sage" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
               </div>
             </div>
           </div>
@@ -925,11 +929,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="window-card event-card">
           <div class="event-card-top">
             <h3>Share the Laughs</h3>
-            <span class="event-badge private">Private Event</span>
+            <span class="event-badge private">Private Events</span>
           </div>
           <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
           <ul class="event-meta" id="stlUpcomingList"></ul>
-          <button class="btn btn-sage" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+          <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
         </div>
       </div>
 
@@ -947,7 +951,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="eyebrow" style="background: var(--sage);">Giving Back</span>
           <h3 style="font-size: 1.4rem;">Free shows that help community organizations fill their activity calendars with fun.</h3>
           <p style="font-size: 0.95rem; margin-top: 12px;">Beyond our public events, we perform — at no cost — for senior centers and retirement communities and local organizations across the area, through our <strong>Share the Laughs</strong> series. These aren't open to the public, but we believe laughter and connection shouldn't be limited to people who can afford a ticket, and these performances are a core part of who we are, not an afterthought.</p>
-          <button class="btn btn-sage" style="margin-top: 20px;" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+          <button class="btn btn-violet" style="margin-top: 20px;" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
         </div>
         <div class="giveback-visual"><img src="images/giveback.jpg" alt="Morristown Improv performers and senior center attendees sharing a laugh at a community give-back show" loading="lazy"></div>
       </div>
