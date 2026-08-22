@@ -215,6 +215,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-radius: 30px;
     font-weight: 600;
     font-size: 0.95rem;
+    line-height: 1;
     border: none;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
     text-decoration: none;
@@ -452,7 +453,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .event-meta { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-top: 6px; }
   .event-meta li { font-size: 0.92rem; color: var(--paper-dim); display: flex; gap: 10px; }
   .event-meta li strong { color: var(--paper); font-weight: 600; min-width: 84px; flex-shrink: 0; }
-  .event-card .btn { margin-top: 8px; align-self: flex-start; }
+  .event-card .btn { margin-top: auto; align-self: flex-start; }
   .btn-disabled { background: rgba(255,255,255,0.05); color: var(--paper-dim); border: 1.5px dashed var(--line-strong); cursor: default; }
   .btn-disabled:hover { transform: none; box-shadow: none; }
   .btn-disabled.amber { background: rgba(255,210,63,0.12); color: var(--amber-soft); border: 1.5px dashed rgba(255,210,63,0.4); }
@@ -924,7 +925,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="events-month">
           <div class="events-month-head">
             <span class="events-month-title">August 2026</span>
-            <span class="events-month-tag confirmed">Confirmed &amp; Booking</span>
+            <span class="events-month-tag confirmed">Confirmed</span>
           </div>
           <div class="event-grid">
             <div class="window-card event-card" id="jamEventCard">
@@ -990,7 +991,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
                 <ul class="event-meta" id="stlUpcomingListSep"></ul>
-                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Suggest a Facility</button>
               </div>
             </div>
           </div>
@@ -1026,7 +1027,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
                 <ul class="event-meta" id="stlUpcomingListOct"></ul>
-                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Suggest a Facility</button>
               </div>
             </div>
           </div>
