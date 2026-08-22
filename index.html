@@ -433,7 +433,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .events-month-title { font-family: var(--display); font-weight: 400; letter-spacing: 0.01em; text-transform: uppercase; font-size: 1.3rem; color: var(--paper); }
   .events-month-tag { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 13px; border-radius: 20px; white-space: nowrap; }
   .events-month-tag.confirmed { background: rgba(78,205,196,0.18); color: var(--sage-soft); }
-  .events-month-tag.horizon { background: rgba(255,255,255,0.07); color: var(--paper-dim); border: 1px dashed var(--line-strong); }
+  .events-lookahead { display: flex; flex-direction: column; gap: 44px; }
   .event-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
   @media (max-width: 980px) { .event-grid { grid-template-columns: 1fr; } }
   .event-card { padding: 38px; display: flex; flex-direction: column; gap: 18px; }
@@ -453,6 +453,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .event-card .btn { margin-top: 8px; align-self: flex-start; }
   .btn-disabled { background: rgba(255,255,255,0.05); color: var(--paper-dim); border: 1.5px dashed var(--line-strong); cursor: default; }
   .btn-disabled:hover { transform: none; box-shadow: none; }
+  .btn-disabled.amber { background: rgba(255,210,63,0.12); color: var(--amber-soft); border: 1.5px dashed rgba(255,210,63,0.4); }
 
   .good-to-know {
     margin-top: 36px;
@@ -947,72 +948,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
-        <div class="events-month">
-          <div class="events-month-head">
-            <span class="events-month-title">September 2026</span>
-            <span class="events-month-tag horizon">Rolling Horizon</span>
-          </div>
-          <div class="event-grid">
-            <div class="window-card event-card event-card-placeholder">
-              <div class="event-card-top">
-                <div>
-                  <span class="event-date-chip tbd-chip">Sep</span>
-                  <h3>Monthly Meet-Up</h3>
-                </div>
-                <span class="event-badge tbd">Date TBD</span>
-              </div>
-              <p style="font-size:0.92rem;">Pending venue confirmation — expected mid-September, same format as always.</p>
-              <ul class="event-meta">
-                <li><strong>Where</strong> Morris Plains Jazzercise (tentative)</li>
-              </ul>
-              <span class="btn btn-disabled">RSVP Link Coming Soon</span>
-            </div>
+        <div class="events-lookahead">
+          <span class="eyebrow">Looking Ahead</span>
 
-            <div class="window-card event-card event-card-placeholder">
-              <div class="event-card-top">
-                <div>
-                  <span class="event-date-chip tbd-chip">Sep</span>
-                  <h3>Improv Jam</h3>
+          <div class="events-month">
+            <div class="events-month-head">
+              <span class="events-month-title">September 2026</span>
+            </div>
+            <div class="event-grid">
+              <div class="window-card event-card event-card-placeholder">
+                <div class="event-card-top">
+                  <div>
+                    <span class="event-date-chip">Sep 26</span>
+                    <h3>Monthly Meet-Up</h3>
+                  </div>
                 </div>
-                <span class="event-badge soon">Registration Opening Soon</span>
+                <p style="font-size:0.92rem;">Same format as always — socializing, warm-ups, and improv games. RSVP link goes up on Meetup closer to the date.</p>
+                <ul class="event-meta">
+                  <li><strong>Where</strong> Morris Plains Jazzercise (tentative)</li>
+                </ul>
+                <span class="btn btn-disabled">RSVP Link Coming Soon</span>
               </div>
-              <p style="font-size:0.92rem;">Expected late September — exact date and tickets go up on Eventbrite once confirmed.</p>
-              <ul class="event-meta">
-                <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></li>
-              </ul>
-              <span class="btn btn-disabled">Tickets Available Soon</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="events-month">
-          <div class="events-month-head">
-            <span class="events-month-title">October – November 2026</span>
-            <span class="events-month-tag horizon">Looking Ahead</span>
-          </div>
-          <div class="event-grid">
-            <div class="window-card event-card event-card-placeholder">
-              <div class="event-card-top">
-                <div>
-                  <span class="event-date-chip tbd-chip">Oct</span>
-                  <h3>Monthly Jam &amp; Meet-Up</h3>
+              <div class="window-card event-card event-card-placeholder">
+                <div class="event-card-top">
+                  <div>
+                    <span class="event-date-chip">Sep 24</span>
+                    <h3>Improv Jam</h3>
+                  </div>
                 </div>
-                <span class="event-badge tbd">Dates TBD</span>
+                <p style="font-size:0.92rem;">Tickets go live on Eventbrite shortly after the August Jam wraps.</p>
+                <ul class="event-meta">
+                  <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></li>
+                </ul>
+                <span class="btn btn-disabled amber">Tickets Available Soon</span>
               </div>
-              <p style="font-size:0.92rem;">Our regular Meet-Up and Jam continue monthly — October dates go up on Meetup and Eventbrite once locked in.</p>
-              <span class="btn btn-disabled">Details Coming Soon</span>
-            </div>
-
-            <div class="window-card event-card">
-              <div class="event-card-top">
-                <h3>Share the Laughs</h3>
-                <span class="event-badge private">Private Events</span>
-              </div>
-              <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
-              <ul class="event-meta" id="stlUpcomingList"></ul>
-              <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
             </div>
           </div>
+
+          <div class="events-month">
+            <div class="events-month-head">
+              <span class="events-month-title">October – November 2026</span>
+            </div>
+            <div class="event-grid">
+              <div class="window-card event-card event-card-placeholder">
+                <div class="event-card-top">
+                  <div>
+                    <span class="event-date-chip">Oct 22</span>
+                    <h3>Improv Jam</h3>
+                  </div>
+                  <span class="event-badge soon">Tentative — Subject to Change</span>
+                </div>
+                <p style="font-size:0.92rem;">Also on the calendar: <strong>Nov 19</strong>. Both at the Morristown Masonic Center — tickets go up on Eventbrite once locked in.</p>
+                <span class="btn btn-disabled">Tickets Coming Soon</span>
+              </div>
+
+              <div class="window-card event-card event-card-placeholder">
+                <div class="event-card-top">
+                  <div>
+                    <span class="event-date-chip tbd-chip">TBD</span>
+                    <h3>Monthly Meet-Up</h3>
+                  </div>
+                  <span class="event-badge tbd">Dates TBD</span>
+                </div>
+                <p style="font-size:0.92rem;">October and November Meet-Up dates haven't been confirmed yet — check back soon.</p>
+                <span class="btn btn-disabled">Details Coming Soon</span>
+              </div>
+
+              <div class="window-card event-card">
+                <div class="event-card-top">
+                  <h3>Share the Laughs</h3>
+                  <span class="event-badge private">Private Events</span>
+                </div>
+                <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
+                <ul class="event-meta" id="stlUpcomingList"></ul>
+                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
