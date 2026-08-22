@@ -982,6 +982,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
                 <span class="btn btn-disabled">RSVP Link Coming Soon</span>
               </div>
+
+              <div class="window-card event-card">
+                <div class="event-card-top">
+                  <h3>Share the Laughs</h3>
+                  <span class="event-badge private">Private Events</span>
+                </div>
+                <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
+                <ul class="event-meta" id="stlUpcomingListSep"></ul>
+                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+              </div>
             </div>
           </div>
 
@@ -1015,7 +1025,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <span class="event-badge private">Private Events</span>
                 </div>
                 <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
-                <ul class="event-meta" id="stlUpcomingList"></ul>
+                <ul class="event-meta" id="stlUpcomingListOct"></ul>
                 <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
               </div>
             </div>
@@ -1831,16 +1841,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     { dateISO: '2026-09-30', label: 'Sept 30', venue: 'Chatham Senior Center' },
     { dateISO: '2026-10-09', label: 'Oct 9', venue: 'Morristown Senior Center' }
   ];
+  function renderSTLGroup(listId, monthStartISO, monthEndISO) {
+    const list = document.getElementById(listId);
+    if (!list) return;
+    const todayISO = new Date().toISOString().slice(0, 10);
+    const items = STL_UPCOMING.filter(e => e.dateISO >= todayISO && e.dateISO >= monthStartISO && e.dateISO < monthEndISO);
+    list.innerHTML = items.length
+      ? items.map(e => '<li><strong>' + e.label + '</strong> ' + e.venue + '</li>').join('')
+      : '<li>New dates added regularly — check back soon.</li>';
+  }
+
   function initSTLList() {
     const todayISO = new Date().toISOString().slice(0, 10);
     const upcoming = STL_UPCOMING.filter(e => e.dateISO >= todayISO);
 
-    const list = document.getElementById('stlUpcomingList');
-    if (list) {
-      list.innerHTML = upcoming.length
-        ? upcoming.map(e => '<li><strong>' + e.label + '</strong> ' + e.venue + '</li>').join('')
-        : '<li>New dates added regularly — check back soon.</li>';
-    }
+    renderSTLGroup('stlUpcomingListSep', '2026-09-01', '2026-10-01');
+    renderSTLGroup('stlUpcomingListOct', '2026-10-01', '2026-12-01');
 
     const homeMonth = document.getElementById('uncStlMonth');
     const homeDay = document.getElementById('uncStlDay');
