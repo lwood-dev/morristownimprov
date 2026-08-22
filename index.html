@@ -428,19 +428,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .mission-callout .eyebrow { margin-bottom: 10px; }
   .mission-callout p { font-size: 0.98rem; line-height: 1.55; color: var(--paper); max-width: 720px; margin: 0; }
 
-  .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+  .events-horizon { margin-top: 48px; display: flex; flex-direction: column; gap: 44px; }
+  .events-month-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .events-month-title { font-family: var(--display); font-weight: 400; letter-spacing: 0.01em; text-transform: uppercase; font-size: 1.3rem; color: var(--paper); }
+  .events-month-tag { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 13px; border-radius: 20px; white-space: nowrap; }
+  .events-month-tag.confirmed { background: rgba(78,205,196,0.18); color: var(--sage-soft); }
+  .events-month-tag.horizon { background: rgba(255,255,255,0.07); color: var(--paper-dim); border: 1px dashed var(--line-strong); }
+  .event-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
   @media (max-width: 980px) { .event-grid { grid-template-columns: 1fr; } }
   .event-card { padding: 38px; display: flex; flex-direction: column; gap: 18px; }
+  .event-card.event-card-placeholder { border-style: dashed; border-color: var(--line-strong); }
   .event-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
   .event-date-chip { display: inline-block; background: var(--amber); color: var(--ink); font-family: var(--display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 8px; margin-bottom: 8px; }
+  .event-date-chip.tbd-chip { background: rgba(255,255,255,0.1); color: var(--paper-dim); }
   .event-badge { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 13px; border-radius: 20px; white-space: nowrap; }
   .event-badge.free { background: rgba(78,205,196,0.18); color: var(--sage-soft); }
   .event-badge.ticket { background: rgba(255,210,63,0.18); color: var(--amber-soft); }
   .event-badge.private { background: rgba(167,139,250,0.18); color: var(--violet-soft); }
+  .event-badge.tbd { background: rgba(255,255,255,0.08); color: var(--paper-dim); }
+  .event-badge.soon { background: rgba(255,210,63,0.12); color: var(--amber-soft); border: 1px dashed rgba(255,210,63,0.4); }
   .event-meta { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-top: 6px; }
   .event-meta li { font-size: 0.92rem; color: var(--paper-dim); display: flex; gap: 10px; }
   .event-meta li strong { color: var(--paper); font-weight: 600; min-width: 84px; flex-shrink: 0; }
   .event-card .btn { margin-top: 8px; align-self: flex-start; }
+  .btn-disabled { background: rgba(255,255,255,0.05); color: var(--paper-dim); border: 1.5px dashed var(--line-strong); cursor: default; }
+  .btn-disabled:hover { transform: none; box-shadow: none; }
 
   .good-to-know {
     margin-top: 36px;
@@ -889,52 +901,120 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <section style="padding-top: 0;">
-      <div class="event-grid">
-        <div class="window-card event-card">
-          <div class="event-card-top">
-            <div>
-              <span class="event-date-chip">Aug 22</span>
-              <h3>Monthly Meet-Up</h3>
-            </div>
-            <span class="event-badge free">Donation-based</span>
+      <div class="events-horizon">
+
+        <div class="events-month">
+          <div class="events-month-head">
+            <span class="events-month-title">August 2026</span>
+            <span class="events-month-tag confirmed">Confirmed &amp; Booking</span>
           </div>
-          <p style="font-size:0.92rem;">Our regular improv hangout — think of it like a drop-in class. Come once, come every month, no commitment either way.</p>
-          <ul class="event-meta">
-            <li><strong>What</strong> Socializing, warm-ups, improv games</li>
-            <li><strong>Cost</strong> Pay what feels right — including nothing</li>
-            <li><strong>Who</strong> Everyone, especially first-timers</li>
-            <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morris+Plains+Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ</a></li>
-          </ul>
-          <button class="btn btn-sage" onclick="openLink('https://www.meetup.com/morristown-improv-meet-up/events/316022355/')">RSVP on Meetup</button>
+          <div class="event-grid">
+            <div class="window-card event-card">
+              <div class="event-card-top">
+                <div>
+                  <span class="event-date-chip">Aug 22</span>
+                  <h3>Monthly Meet-Up</h3>
+                </div>
+                <span class="event-badge free">Donation-based</span>
+              </div>
+              <p style="font-size:0.92rem;">Our regular improv hangout — think of it like a drop-in class. Come once, come every month, no commitment either way.</p>
+              <ul class="event-meta">
+                <li><strong>What</strong> Socializing, warm-ups, improv games</li>
+                <li><strong>Cost</strong> Pay what feels right — including nothing</li>
+                <li><strong>Who</strong> Everyone, especially first-timers</li>
+                <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morris+Plains+Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ</a></li>
+              </ul>
+              <button class="btn btn-sage" onclick="openLink('https://www.meetup.com/morristown-improv-meet-up/events/316022355/')">RSVP on Meetup</button>
+            </div>
+
+            <div class="window-card event-card" id="jamEventCard">
+              <div class="event-card-top">
+                <div>
+                  <span class="event-date-chip" id="jamDateChip">Aug 27</span>
+                  <h3>Improv Jam</h3>
+                </div>
+                <span class="event-badge ticket">Ticketed</span>
+              </div>
+              <p style="font-size:0.92rem;" id="jamThemeNote">A live improv show where anyone in the audience can step up and play short-form games — or just watch.</p>
+              <ul class="event-meta">
+                <li><strong>Cost</strong> $15 presale / $20 at the door (cash/Venmo)</li>
+                <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></li>
+                <li id="jamWhenMeta"><strong>When</strong> Doors 7:15 PM · Show 7:30 PM</li>
+                <li><strong>Note</strong> Limited tickets — we frequently sell out</li>
+              </ul>
+              <a id="jamTicketsBtn" class="btn btn-primary" href="https://www.eventbrite.com/o/morristown-improv-106542133661" target="_blank" rel="noopener">Get Tickets</a>
+            </div>
+          </div>
         </div>
 
-        <div class="window-card event-card" id="jamEventCard">
-          <div class="event-card-top">
-            <div>
-              <span class="event-date-chip" id="jamDateChip">Aug 27</span>
-              <h3>Improv Jam</h3>
-            </div>
-            <span class="event-badge ticket">Ticketed</span>
+        <div class="events-month">
+          <div class="events-month-head">
+            <span class="events-month-title">September 2026</span>
+            <span class="events-month-tag horizon">Rolling Horizon</span>
           </div>
-          <p style="font-size:0.92rem;" id="jamThemeNote">A live improv show where anyone in the audience can step up and play short-form games — or just watch.</p>
-          <ul class="event-meta">
-            <li><strong>Cost</strong> $15 presale / $20 at the door (cash/Venmo)</li>
-            <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></li>
-            <li id="jamWhenMeta"><strong>When</strong> Doors 7:15 PM · Show 7:30 PM</li>
-            <li><strong>Note</strong> Limited tickets — we frequently sell out</li>
-          </ul>
-          <a id="jamTicketsBtn" class="btn btn-primary" href="https://www.eventbrite.com/o/morristown-improv-106542133661" target="_blank" rel="noopener">Get Tickets</a>
+          <div class="event-grid">
+            <div class="window-card event-card event-card-placeholder">
+              <div class="event-card-top">
+                <div>
+                  <span class="event-date-chip tbd-chip">Sep</span>
+                  <h3>Monthly Meet-Up</h3>
+                </div>
+                <span class="event-badge tbd">Date TBD</span>
+              </div>
+              <p style="font-size:0.92rem;">Pending venue confirmation — expected mid-September, same format as always.</p>
+              <ul class="event-meta">
+                <li><strong>Where</strong> Morris Plains Jazzercise (tentative)</li>
+              </ul>
+              <span class="btn btn-disabled">RSVP Link Coming Soon</span>
+            </div>
+
+            <div class="window-card event-card event-card-placeholder">
+              <div class="event-card-top">
+                <div>
+                  <span class="event-date-chip tbd-chip">Sep</span>
+                  <h3>Improv Jam</h3>
+                </div>
+                <span class="event-badge soon">Registration Opening Soon</span>
+              </div>
+              <p style="font-size:0.92rem;">Expected late September — exact date and tickets go up on Eventbrite once confirmed.</p>
+              <ul class="event-meta">
+                <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></li>
+              </ul>
+              <span class="btn btn-disabled">Tickets Available Soon</span>
+            </div>
+          </div>
         </div>
 
-        <div class="window-card event-card">
-          <div class="event-card-top">
-            <h3>Share the Laughs</h3>
-            <span class="event-badge private">Private Events</span>
+        <div class="events-month">
+          <div class="events-month-head">
+            <span class="events-month-title">October – November 2026</span>
+            <span class="events-month-tag horizon">Looking Ahead</span>
           </div>
-          <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
-          <ul class="event-meta" id="stlUpcomingList"></ul>
-          <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+          <div class="event-grid">
+            <div class="window-card event-card event-card-placeholder">
+              <div class="event-card-top">
+                <div>
+                  <span class="event-date-chip tbd-chip">Oct</span>
+                  <h3>Monthly Jam &amp; Meet-Up</h3>
+                </div>
+                <span class="event-badge tbd">Dates TBD</span>
+              </div>
+              <p style="font-size:0.92rem;">Our regular Meet-Up and Jam continue monthly — October dates go up on Meetup and Eventbrite once locked in.</p>
+              <span class="btn btn-disabled">Details Coming Soon</span>
+            </div>
+
+            <div class="window-card event-card">
+              <div class="event-card-top">
+                <h3>Share the Laughs</h3>
+                <span class="event-badge private">Private Events</span>
+              </div>
+              <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
+              <ul class="event-meta" id="stlUpcomingList"></ul>
+              <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
+            </div>
+          </div>
         </div>
+
       </div>
 
       <div class="good-to-know">
