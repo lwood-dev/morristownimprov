@@ -440,11 +440,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .event-card.event-card-placeholder { border-style: dashed; border-color: var(--line-strong); }
   .event-card-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px 16px; }
   .event-card-dates { display: flex; align-items: center; gap: 8px; }
-  .event-date-sep { color: var(--paper-dim); font-family: var(--display); font-size: 0.95rem; }
+  .event-date-sep { position: relative; top: -4px; color: var(--paper-dim); font-family: var(--display); font-size: 0.95rem; }
   .event-date-chip { display: inline-block; background: var(--amber); color: var(--ink); font-family: var(--display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 8px; margin-bottom: 8px; }
-  .event-date-chip.tbd-chip { background: rgba(255,255,255,0.1); color: var(--paper-dim); }
-  .event-badge { display: inline-block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 13px; border-radius: 20px; white-space: nowrap; }
-  .event-badge.small { align-self: flex-start; font-size: 0.66rem; padding: 4px 10px; }
+  .event-badge { display: inline-block; align-self: flex-start; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 13px; border-radius: 20px; white-space: nowrap; }
+  .event-badge.small { font-size: 0.66rem; padding: 4px 10px; }
   .event-badge.free { background: rgba(78,205,196,0.18); color: var(--sage-soft); }
   .event-badge.ticket { background: rgba(255,210,63,0.18); color: var(--amber-soft); }
   .event-badge.private { background: rgba(167,139,250,0.18); color: var(--violet-soft); }
@@ -834,21 +833,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="unc-slide">
               <div class="window-card up-next">
                 <div class="up-next-date">
-                  <div class="month">Aug</div>
-                  <div class="day">22</div>
-                </div>
-                <div class="up-next-info">
-                  <span class="tag">Monthly Meet-Up</span>
-                  <h3>Morristown Improv Meet-Up — August 2026</h3>
-                  <p style="margin:0; font-size: 0.92rem;">1:00–3:00 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Morris+Plains+Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ</a> (social hour after at Tiff's, 3–4 PM)</p>
-                </div>
-                <button class="btn btn-primary" onclick="openLink('https://www.meetup.com/morristown-improv-meet-up/events/316022355/')">RSVP on Meetup</button>
-              </div>
-            </div>
-
-            <div class="unc-slide">
-              <div class="window-card up-next">
-                <div class="up-next-date">
                   <div class="month" id="uncJamMonth">Aug</div>
                   <div class="day" id="uncJamDay">27</div>
                 </div>
@@ -943,24 +927,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="events-month-tag confirmed">Confirmed &amp; Booking</span>
           </div>
           <div class="event-grid">
-            <div class="window-card event-card">
-              <div class="event-card-top">
-                <div>
-                  <span class="event-date-chip">Aug 22</span>
-                  <h3>Monthly Meet-Up</h3>
-                </div>
-                <span class="event-badge free">Donation-based</span>
-              </div>
-              <p style="font-size:0.92rem;">Our regular improv hangout — think of it like a drop-in class. Come once, come every month, no commitment either way.</p>
-              <ul class="event-meta">
-                <li><strong>What</strong> Socializing, warm-ups, improv games</li>
-                <li><strong>Cost</strong> Pay what feels right — including nothing</li>
-                <li><strong>Who</strong> Everyone, especially first-timers</li>
-                <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morris+Plains+Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ</a></li>
-              </ul>
-              <button class="btn btn-sage" onclick="openLink('https://www.meetup.com/morristown-improv-meet-up/events/316022355/')">RSVP on Meetup</button>
-            </div>
-
             <div class="window-card event-card" id="jamEventCard">
               <div class="event-card-top">
                 <div>
@@ -1025,25 +991,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="event-grid">
               <div class="window-card event-card event-card-placeholder">
+                <h3>Improv Jam</h3>
                 <div class="event-card-dates">
                   <span class="event-date-chip">Oct 22</span>
                   <span class="event-date-sep">&amp;</span>
                   <span class="event-date-chip">Nov 19</span>
                 </div>
                 <span class="event-badge soon small">Tentative — Subject to Change</span>
-                <h3>Improv Jam</h3>
                 <p style="font-size:0.92rem;">Our October and November Jam dates at the Morristown Masonic Center are tentative — check back for ticket links soon.</p>
                 <span class="btn btn-disabled">Tickets Coming Soon</span>
               </div>
 
               <div class="window-card event-card event-card-placeholder">
-                <div class="event-card-top">
-                  <div>
-                    <span class="event-date-chip tbd-chip">TBD</span>
-                    <h3>Monthly Meet-Up</h3>
-                  </div>
-                  <span class="event-badge tbd">Dates TBD</span>
-                </div>
+                <h3>Monthly Meet-Up</h3>
+                <span class="event-badge tbd">Dates TBD</span>
                 <p style="font-size:0.92rem;">October and November Meet-Up dates haven't been confirmed yet — check back soon.</p>
                 <span class="btn btn-disabled">Details Coming Soon</span>
               </div>
@@ -1066,7 +1027,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="good-to-know">
         <span class="gtk-icon" aria-hidden="true">🅿️</span>
-        <p><strong>Good to know:</strong> Parking in Morristown can be a sport of its own. We recommend the DeHart Street Garage, or arrive early and grab street parking — then swing by South Street for a drink before heading to Maple Ave.</p>
+        <p><strong>Good to know:</strong> For the Jams, parking in Morristown can be a sport of its own. We recommend the DeHart Street Garage, or arrive early and grab street parking — then swing by South Street for a drink before heading to Maple Ave.</p>
       </div>
 
       <p style="margin-top: 20px;"><a href="#" onclick="event.preventDefault(); goTo('media')" style="color: var(--amber); font-weight: 600; text-decoration: none;">📷 See photos from past Meet-Ups &amp; Jams →</a></p>
