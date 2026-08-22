@@ -438,10 +438,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 980px) { .event-grid { grid-template-columns: 1fr; } }
   .event-card { padding: 38px; display: flex; flex-direction: column; gap: 18px; }
   .event-card.event-card-placeholder { border-style: dashed; border-color: var(--line-strong); }
-  .event-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .event-card-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px 16px; }
+  .event-card-dates { display: flex; align-items: center; gap: 8px; }
+  .event-date-sep { color: var(--paper-dim); font-family: var(--display); font-size: 0.95rem; }
   .event-date-chip { display: inline-block; background: var(--amber); color: var(--ink); font-family: var(--display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; padding: 4px 10px; border-radius: 8px; margin-bottom: 8px; }
   .event-date-chip.tbd-chip { background: rgba(255,255,255,0.1); color: var(--paper-dim); }
-  .event-badge { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 13px; border-radius: 20px; white-space: nowrap; }
+  .event-badge { display: inline-block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 13px; border-radius: 20px; white-space: nowrap; }
+  .event-badge.small { align-self: flex-start; font-size: 0.66rem; padding: 4px 10px; }
   .event-badge.free { background: rgba(78,205,196,0.18); color: var(--sage-soft); }
   .event-badge.ticket { background: rgba(255,210,63,0.18); color: var(--amber-soft); }
   .event-badge.private { background: rgba(167,139,250,0.18); color: var(--violet-soft); }
@@ -861,6 +864,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="unc-slide">
               <div class="window-card up-next">
                 <div class="up-next-date">
+                  <div class="month">Sep</div>
+                  <div class="day">24</div>
+                </div>
+                <div class="up-next-info">
+                  <span class="tag">Improv Jam</span>
+                  <h3>Improv Jam — September 2026</h3>
+                  <p style="margin:0; font-size: 0.92rem;">Tickets go live on Eventbrite shortly after the August Jam wraps.</p>
+                </div>
+                <span class="btn btn-disabled amber">Tickets Available Soon</span>
+              </div>
+            </div>
+
+            <div class="unc-slide">
+              <div class="window-card up-next">
+                <div class="up-next-date">
+                  <div class="month">Sep</div>
+                  <div class="day">26</div>
+                </div>
+                <div class="up-next-info">
+                  <span class="tag">Monthly Meet-Up</span>
+                  <h3>Morristown Improv Meet-Up — September 2026</h3>
+                  <p style="margin:0; font-size: 0.92rem;">Same format as always — socializing, warm-ups, and improv games. RSVP link goes up on Meetup closer to the date.</p>
+                </div>
+                <span class="btn btn-disabled">RSVP Link Coming Soon</span>
+              </div>
+            </div>
+
+            <div class="unc-slide">
+              <div class="window-card up-next">
+                <div class="up-next-date">
                   <div class="month" id="uncStlMonth">Sep</div>
                   <div class="day" id="uncStlDay">30</div>
                 </div>
@@ -959,20 +992,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="window-card event-card event-card-placeholder">
                 <div class="event-card-top">
                   <div>
-                    <span class="event-date-chip">Sep 26</span>
-                    <h3>Monthly Meet-Up</h3>
-                  </div>
-                </div>
-                <p style="font-size:0.92rem;">Same format as always — socializing, warm-ups, and improv games. RSVP link goes up on Meetup closer to the date.</p>
-                <ul class="event-meta">
-                  <li><strong>Where</strong> Morris Plains Jazzercise (tentative)</li>
-                </ul>
-                <span class="btn btn-disabled">RSVP Link Coming Soon</span>
-              </div>
-
-              <div class="window-card event-card event-card-placeholder">
-                <div class="event-card-top">
-                  <div>
                     <span class="event-date-chip">Sep 24</span>
                     <h3>Improv Jam</h3>
                   </div>
@@ -983,6 +1002,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
                 <span class="btn btn-disabled amber">Tickets Available Soon</span>
               </div>
+
+              <div class="window-card event-card event-card-placeholder">
+                <div class="event-card-top">
+                  <div>
+                    <span class="event-date-chip">Sep 26</span>
+                    <h3>Monthly Meet-Up</h3>
+                  </div>
+                </div>
+                <p style="font-size:0.92rem;">Same format as always — socializing, warm-ups, and improv games. RSVP link goes up on Meetup closer to the date.</p>
+                <ul class="event-meta">
+                  <li><strong>Where</strong> Morris Plains Jazzercise (tentative)</li>
+                </ul>
+                <span class="btn btn-disabled">RSVP Link Coming Soon</span>
+              </div>
             </div>
           </div>
 
@@ -992,14 +1025,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="event-grid">
               <div class="window-card event-card event-card-placeholder">
-                <div class="event-card-top">
-                  <div>
-                    <span class="event-date-chip">Oct 22</span>
-                    <h3>Improv Jam</h3>
-                  </div>
-                  <span class="event-badge soon">Tentative — Subject to Change</span>
+                <div class="event-card-dates">
+                  <span class="event-date-chip">Oct 22</span>
+                  <span class="event-date-sep">&amp;</span>
+                  <span class="event-date-chip">Nov 19</span>
                 </div>
-                <p style="font-size:0.92rem;">Also on the calendar: <strong>Nov 19</strong>. Both at the Morristown Masonic Center — tickets go up on Eventbrite once locked in.</p>
+                <span class="event-badge soon small">Tentative — Subject to Change</span>
+                <h3>Improv Jam</h3>
+                <p style="font-size:0.92rem;">Our October and November Jam dates at the Morristown Masonic Center are tentative — check back for ticket links soon.</p>
                 <span class="btn btn-disabled">Tickets Coming Soon</span>
               </div>
 
