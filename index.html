@@ -48,8 +48,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "sameAs": [
     "https://www.instagram.com/morristownimprov/",
     "https://www.facebook.com/p/Morristown-Improv-61572506532725/",
-    "https://www.meetup.com/morristown-improv-meet-up/"
+    "https://www.meetup.com/morristown-improv-meet-up/",
+    "https://store.morristownimprov.com"
   ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "name": "Morristown Improv Merch",
+  "url": "https://store.morristownimprov.com",
+  "description": "Official Morristown Improv merch — apparel and accessories supporting a volunteer-led, not-for-profit improv community in Morristown & Morris Plains, NJ.",
+  "parentOrganization": {
+    "@type": "PerformingGroup",
+    "name": "Morristown Improv",
+    "url": "https://www.morristownimprov.com/"
+  }
 }
 </script>
 
@@ -151,11 +167,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 18px 32px;
+    padding: 18px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 20px;
   }
   .brand {
     display: flex;
@@ -182,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .nav-links {
     display: flex;
-    gap: 4px;
+    gap: 2px;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -192,10 +208,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: var(--paper-dim);
     font-size: 0.92rem;
     font-weight: 500;
-    padding: 9px 14px;
+    padding: 9px 12px;
     border-radius: 20px;
     transition: all 0.2s ease;
     white-space: nowrap;
+    display: inline-block;
+    text-decoration: none;
   }
   .nav-link:hover { color: var(--paper); background: rgba(250,246,240,0.06); }
   .nav-link.active { color: var(--ink); background: var(--amber); font-weight: 600; }
@@ -813,6 +831,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="nav-link" data-page="involved" onclick="goTo('involved')">Get Involved</button>
       <button class="nav-link" data-page="sponsors" onclick="goTo('sponsors')">Sponsors</button>
       <button class="nav-link" data-page="hireus" onclick="goTo('hireus')">Book a Show</button>
+      <a class="nav-link nav-link-ext" href="https://store.morristownimprov.com" target="_blank" rel="noopener" title="Morristown Improv merch store (opens in a new tab)">Merch</a>
     </div>
     <button class="nav-cta" onclick="goTo('events')">Join an Event</button>
   </div>
@@ -1653,6 +1672,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="#" onclick="event.preventDefault(); goTo('sponsors')">Sponsors</a>
         <a href="#" onclick="event.preventDefault(); goTo('media')">Gallery</a>
         <a href="#" onclick="event.preventDefault(); goTo('hireus')">Book a Show</a>
+        <a href="https://store.morristownimprov.com" target="_blank" rel="noopener" title="Morristown Improv merch store">Merch ↗</a>
       </div>
       <div class="footer-col">
         <h4>Follow Along</h4>
