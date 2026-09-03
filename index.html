@@ -894,30 +894,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="unc-slide">
               <div class="window-card up-next">
                 <div class="up-next-date">
-                  <div class="month" id="uncJamMonth">Aug</div>
-                  <div class="day" id="uncJamDay">27</div>
+                  <div class="month" id="uncJamMonth">Sep</div>
+                  <div class="day" id="uncJamDay">24</div>
                 </div>
                 <div class="up-next-info">
                   <span class="tag">Improv Jam</span>
-                  <h3 id="uncJamTitle">Improv Jam — August 2026</h3>
+                  <h3 id="uncJamTitle">Improv Jam — September 2026</h3>
                   <p style="margin:0; font-size: 0.92rem;" id="uncJamDetail">Doors 7:15 PM · Show 7:30 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></p>
                 </div>
-                <a id="uncJamBtn" class="btn btn-primary" href="https://www.eventbrite.com/o/morristown-improv-106542133661" target="_blank" rel="noopener">Get Tickets</a>
-              </div>
-            </div>
-
-            <div class="unc-slide">
-              <div class="window-card up-next">
-                <div class="up-next-date">
-                  <div class="month">Sep</div>
-                  <div class="day">24</div>
-                </div>
-                <div class="up-next-info">
-                  <span class="tag">Improv Jam</span>
-                  <h3>Improv Jam — September 2026</h3>
-                  <p style="margin:0; font-size: 0.92rem;">Tickets go live on Eventbrite shortly after the August Jam wraps.</p>
-                </div>
-                <span class="btn btn-disabled amber">Tickets Available Soon</span>
+                <a id="uncJamBtn" class="btn btn-primary" href="https://www.eventbrite.com/e/morristown-improv-monthly-improv-jam-tickets-1999620660223" target="_blank" rel="noopener">Get Tickets</a>
               </div>
             </div>
 
@@ -984,14 +969,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="events-month">
           <div class="events-month-head">
-            <span class="events-month-title">August 2026</span>
+            <span class="events-month-title">September 2026</span>
             <span class="events-month-tag confirmed">Confirmed</span>
           </div>
           <div class="event-grid">
             <div class="window-card event-card" id="jamEventCard">
               <div class="event-card-top">
                 <div>
-                  <span class="event-date-chip" id="jamDateChip">Aug 27</span>
+                  <span class="event-date-chip" id="jamDateChip">Sep 24</span>
                   <h3>Improv Jam</h3>
                 </div>
                 <span class="event-badge ticket">Ticketed</span>
@@ -1016,20 +1001,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="events-month-title">September 2026</span>
             </div>
             <div class="event-grid">
-              <div class="window-card event-card event-card-placeholder">
-                <div class="event-card-top">
-                  <div>
-                    <span class="event-date-chip">Sep 24</span>
-                    <h3>Improv Jam</h3>
-                  </div>
-                </div>
-                <p style="font-size:0.92rem;">Tickets go live on Eventbrite shortly after the August Jam wraps.</p>
-                <ul class="event-meta">
-                  <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></li>
-                </ul>
-                <span class="btn btn-disabled amber">Tickets Available Soon</span>
-              </div>
-
               <div class="window-card event-card event-card-placeholder">
                 <div class="event-card-top">
                   <div>
@@ -1824,12 +1795,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // Improv Jam — Liam only creates the next Eventbrite listing after the current one happens,
   // so this expires client-side rather than ever linking to a stale/past ticket page.
   const JAM_NEXT = {
-    dateISO: '2026-08-27',
-    dateChip: 'Aug 27',
-    whenLine: 'Doors 7:15 PM · Show 7:30 PM — 80s theme: "Do You Want Your MTV?"',
+    dateISO: '2026-09-24',
+    dateChip: 'Sep 24',
+    whenLine: 'Doors 7:15 PM · Show 7:30 PM',
     themeLine: 'A live improv show where anyone in the audience can step up and play short-form games — or just watch.',
-    eventId: '1996346239342',
-    eventUrl: 'https://www.eventbrite.com/e/morristown-improv-monthly-improv-jam-tickets-1996346239342'
+    eventId: '1999620660223',
+    eventUrl: 'https://www.eventbrite.com/e/morristown-improv-monthly-improv-jam-tickets-1999620660223'
   };
   const EVENTBRITE_ORG_URL = 'https://www.eventbrite.com/o/morristown-improv-106542133661';
 
@@ -1880,7 +1851,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (homeMonth) homeMonth.textContent = box.month;
       if (homeDay) homeDay.textContent = box.day;
       if (homeTitle) homeTitle.textContent = 'Improv Jam';
-      if (homeDetail) homeDetail.innerHTML = 'Doors 7:15 PM · Show 7:30 PM — 80s theme: "Do You Want Your MTV?"';
+      if (homeDetail) homeDetail.innerHTML = 'Doors 7:15 PM · Show 7:30 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a>';
       if (homeBtn) { homeBtn.href = JAM_NEXT.eventUrl; homeBtn.textContent = 'Get Tickets'; }
       if (btn) wireEventbriteTrigger('jamTicketsBtn');
       if (homeBtn) wireEventbriteTrigger('uncJamBtn');
