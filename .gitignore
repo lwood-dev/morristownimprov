@@ -9,3 +9,6 @@ desktop.ini
 
 # Python cache (from your Pillow work)
 __pycache__/
+
+# Local-only Claude Code guidance (each dev keeps their own; never committed)
+CLAUDE.md
