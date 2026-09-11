@@ -1809,6 +1809,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     return { month: d.toLocaleDateString('en-US', { month: 'short' }), day: String(d.getDate()) };
   }
 
+  // Eventbrite's own in-widget close (X) sits in a tiny corner of the checkout iframe
+  // and can end up unreachable on tablets — cut off by the browser's address bar,
+  // or just hard to see against the event flyer image. This adds an always-visible
+  // fallback close button on top of the widget so there's always a way out besides
+  // completing checkout.
+  function ensureEventbriteFallbackClose() {
+    let closeBtn = document.getElementById('ebFallbackClose');
+    if (closeBtn) return closeBtn;
+    closeBtn = document.createElement('button');
+    closeBtn.id = 'ebFallbackClose';
+    closeBtn.type = 'button';
+    closeBtn.setAttribute('aria-label', 'Close ticket checkout');
+    closeBtn.textContent = '✕';
+    // Bottom-right, not top-right: the top is where the nav bar lives and where
+    // mobile browsers show/hide their address bar, so anything fixed-top can end up
+    // hidden behind either one — the exact failure mode this button exists to avoid.
+    closeBtn.style.cssText = 'display:none;position:fixed;bottom:20px;right:20px;width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:22px;line-height:1;border:2px solid var(--line-strong);z-index:2147483647;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.5);';
+    closeBtn.addEventListener('click', () => {
+      document.querySelectorAll('[id^="eventbrite-widget-modal"]').forEach(el => {
+        el.style.display = 'none';
+        el.style.opacity = '0';
+      });
+      closeBtn.style.display = 'none';
+    });
+    document.body.appendChild(closeBtn);
+    return closeBtn;
+  }
+
   function wireEventbriteTrigger(btnId) {
     if (window.EBWidgets) {
       window.EBWidgets.createWidget({
@@ -1821,7 +1849,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // navigation (especially with target="_blank"), so both the modal AND a new tab
       // were opening. Force it here — modal only, never both.
       const btn = document.getElementById(btnId);
-      if (btn) btn.addEventListener('click', e => e.preventDefault());
+      if (btn) btn.addEventListener('click', e => {
+        e.preventDefault();
+        const closeBtn = ensureEventbriteFallbackClose();
+        setTimeout(() => {
+          // Re-append so it's the LAST element in <body> — the widget's own overlay/iframe
+          // share the same max z-index, so DOM order (not z-index) decides who's on top
+          // and who actually receives the click.
+          document.body.appendChild(closeBtn);
+          closeBtn.style.display = 'flex';
+        }, 400);
+      });
     }
   }
 
