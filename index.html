@@ -1714,6 +1714,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   function mailTo(subject, bodyLines) {
+    // Fires on every mailto CTA (signup, survey, hire-us, sponsor, etc.) — this is a click on
+    // the button, not proof the visitor's mail client actually sent anything afterward. Compare
+    // this count against real inbox volume for the matching subject line to size that gap.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cta_mailto_click',
+      cta_subject: subject,
+      page_path: '/#' + (document.querySelector('.page.active') ? document.querySelector('.page.active').id.replace('page-', '') : 'home')
+    });
     const body = (bodyLines || []).filter(Boolean).join('\n');
     let href = 'mailto:' + ORG_EMAIL + '?subject=' + encodeURIComponent(subject);
     if (body) href += '&body=' + encodeURIComponent(body);
