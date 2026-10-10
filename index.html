@@ -1013,7 +1013,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="events-month">
             <div class="events-month-head">
-              <span class="events-month-title">October – November 2026</span>
+              <span class="events-month-title">November 2026</span>
             </div>
             <div class="event-grid">
               <div class="window-card event-card event-card-placeholder">
@@ -1039,7 +1039,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <span class="event-badge private">Private Events</span>
                 </div>
                 <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
-                <ul class="event-meta" id="stlUpcomingListOct"></ul>
+                <ul class="event-meta" id="stlUpcomingListNov"></ul>
+                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Suggest a Facility</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="events-month">
+            <div class="events-month-head">
+              <span class="events-month-title">December 2026 – February 2027</span>
+            </div>
+            <div class="event-grid">
+              <div class="window-card event-card">
+                <div class="event-card-top">
+                  <h3>Share the Laughs</h3>
+                  <span class="event-badge private">Private Events</span>
+                </div>
+                <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
+                <ul class="event-meta" id="stlUpcomingListWinter"></ul>
                 <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Suggest a Facility</button>
               </div>
             </div>
@@ -1930,8 +1947,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   // Share the Laughs — private community shows; past dates drop off automatically.
   const STL_UPCOMING = [
-    { dateISO: '2026-09-30', label: 'Sept 30', venue: 'Chatham Senior Center' },
-    { dateISO: '2026-10-09', label: 'Oct 9', venue: 'Morristown Senior Center' }
+    { dateISO: '2026-11-05', label: 'Nov 5', venue: 'Garwood Seniors' },
+    { dateISO: '2026-11-17', label: 'Nov 17', venue: 'Springfield Seniors' },
+    { dateISO: '2026-12-11', label: 'Dec 11', venue: 'Montgomery Senior Center' },
+    { dateISO: '2026-12-21', label: 'Dec 21', venue: 'Quail Brook Senior Center' },
+    { dateISO: '2027-01-26', label: 'Jan 26', venue: 'Parsippany Library' },
+    { dateISO: '2027-02-22', label: 'Feb 22', venue: 'Fanwood Seniors Club' }
   ];
   function renderSTLGroup(listId, monthStartISO, monthEndISO) {
     const list = document.getElementById(listId);
@@ -1947,7 +1968,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const todayISO = new Date().toISOString().slice(0, 10);
     const upcoming = STL_UPCOMING.filter(e => e.dateISO >= todayISO);
 
-    renderSTLGroup('stlUpcomingListOct', '2026-10-01', '2026-12-01');
+    renderSTLGroup('stlUpcomingListNov', '2026-11-01', '2026-12-01');
+    renderSTLGroup('stlUpcomingListWinter', '2026-12-01', '2027-03-01');
 
     const homeMonth = document.getElementById('uncStlMonth');
     const homeDay = document.getElementById('uncStlDay');
