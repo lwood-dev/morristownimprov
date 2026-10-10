@@ -909,15 +909,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="unc-slide">
               <div class="window-card up-next">
                 <div class="up-next-date">
-                  <div class="month">New</div>
-                  <div class="day">TBA</div>
+                  <div class="month" id="uncMeetupMonth">Oct</div>
+                  <div class="day" id="uncMeetupDay">24</div>
                 </div>
                 <div class="up-next-info">
                   <span class="tag">Monthly Meet-Up</span>
-                  <h3>Morristown Improv Meet-Up</h3>
-                  <p style="margin:0; font-size: 0.92rem;">Same format as always — socializing, warm-ups, and improv games. Next date posted on Meetup.</p>
+                  <h3 id="uncMeetupTitle">Morristown Improv Meet-Up — October 2026</h3>
+                  <p style="margin:0; font-size: 0.92rem;" id="uncMeetupDetail">Sat 1–4 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave</a></p>
                 </div>
-                <a class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/" target="_blank" rel="noopener">See Upcoming Meet-Ups</a>
+                <a id="uncMeetupBtn" class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/events/316918912/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener">RSVP on Meetup</a>
               </div>
             </div>
 
@@ -990,6 +990,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </ul>
               <a id="jamTicketsBtn" class="btn btn-primary" href="https://www.eventbrite.com/o/morristown-improv-106542133661" target="_blank" rel="noopener">Get Tickets</a>
             </div>
+
+            <div class="window-card event-card" id="meetupEventCard">
+              <div class="event-card-top">
+                <div>
+                  <span class="event-date-chip" id="meetupDateChip">Oct 24</span>
+                  <h3>Monthly Meet-Up</h3>
+                </div>
+              </div>
+              <p style="font-size:0.92rem;">Same format as always — about 2 to 2.5 hours of improv games, then anyone who wants can head around the corner to Tiff's for food and socializing. All levels welcome; please RSVP so we can plan for head count.</p>
+              <ul class="event-meta">
+                <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ</a></li>
+                <li id="meetupWhenMeta"><strong>When</strong> Saturday, 1–4 PM</li>
+              </ul>
+              <a id="meetupRsvpBtn" class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/events/316918912/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener">RSVP on Meetup</a>
+            </div>
           </div>
         </div>
 
@@ -1014,7 +1029,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="window-card event-card event-card-placeholder">
                 <h3>Monthly Meet-Up</h3>
                 <span class="event-badge tbd">Dates TBD</span>
-                <p style="font-size:0.92rem;">October and November Meet-Up dates haven't been confirmed yet — check back soon.</p>
+                <p style="font-size:0.92rem;">The November Meet-Up date hasn't been confirmed yet — check back soon.</p>
                 <span class="btn btn-disabled">Details Coming Soon</span>
               </div>
 
@@ -1883,6 +1898,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
   initJamCard();
+
+  // Monthly Meet-Up — same idea as the Jam: once the date passes, fall back to the
+  // Meetup group page instead of leaving an RSVP link to a past event.
+  const MEETUP_NEXT = { dateISO: '2026-10-24' };
+  const MEETUP_GROUP_URL = 'https://www.meetup.com/morristown-improv-meet-up/';
+
+  function initMeetupCard() {
+    const todayISO = new Date().toISOString().slice(0, 10);
+    if (todayISO <= MEETUP_NEXT.dateISO) return;
+
+    const chip = document.getElementById('meetupDateChip');
+    const when = document.getElementById('meetupWhenMeta');
+    const btn = document.getElementById('meetupRsvpBtn');
+    const homeMonth = document.getElementById('uncMeetupMonth');
+    const homeDay = document.getElementById('uncMeetupDay');
+    const homeTitle = document.getElementById('uncMeetupTitle');
+    const homeDetail = document.getElementById('uncMeetupDetail');
+    const homeBtn = document.getElementById('uncMeetupBtn');
+
+    if (chip) chip.textContent = 'Monthly';
+    if (when) when.innerHTML = '<strong>When</strong> Next date TBA — posted on Meetup';
+    if (btn) { btn.href = MEETUP_GROUP_URL; btn.textContent = 'See Upcoming Meet-Ups'; }
+    if (homeMonth) homeMonth.textContent = 'New';
+    if (homeDay) homeDay.textContent = 'TBA';
+    if (homeTitle) homeTitle.textContent = 'Morristown Improv Meet-Up';
+    if (homeDetail) homeDetail.textContent = 'Same format as always — socializing, warm-ups, and improv games. Next date posted on Meetup.';
+    if (homeBtn) { homeBtn.href = MEETUP_GROUP_URL; homeBtn.textContent = 'See Upcoming Meet-Ups'; }
+  }
+  initMeetupCard();
 
   // Share the Laughs — private community shows; past dates drop off automatically.
   const STL_UPCOMING = [
