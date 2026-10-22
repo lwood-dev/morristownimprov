@@ -595,6 +595,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
 
+  const isPhone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // iPadOS reports as a Mac
+
+  // Try the app's own link first; if the app doesn't open (not installed), the page is still
+  // visible after a moment, so fall back to the web link.
+  function openAppOrWeb(appUrl, webUrl) {
+    let left = false;
+    const onLeave = () => { if (document.visibilityState === 'hidden') left = true; };
+    document.addEventListener('visibilitychange', onLeave);
+    window.addEventListener('pagehide', () => { left = true; }, { once: true });
+    window.location.href = appUrl;
+    setTimeout(() => {
+      document.removeEventListener('visibilitychange', onLeave);
+      if (!left) window.location.href = webUrl;
+    }, 1500);
+  }
+
   function payCard(title, lines, actions) {
     const card = document.createElement('div');
     card.className = 'ws-pay';
@@ -618,9 +635,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       el.textContent = a.label;
       if (a.href) { el.href = a.href; el.target = '_blank'; el.rel = 'noopener'; }
       else el.type = 'button';
-      el.addEventListener('click', () => {
+      el.addEventListener('click', (e) => {
         track('workshop_payment_click', { payment_method: a.method });
         if (a.copy) copyText(a.copy, el);
+        if (a.app && isPhone) { e.preventDefault(); openAppOrWeb(a.app, a.href); }
       });
       row.appendChild(el);
     });
@@ -638,7 +656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     opts.innerHTML = '';
     if (pay.venmo) {
       opts.appendChild(payCard('Venmo', [[{ text: 'Send ' + amount + ' to ' }, { text: pay.venmo.handle, strong: true }]],
-        [{ label: 'Open Venmo', href: pay.venmo.url, primary: true, method: 'venmo' }]));
+        [{ label: 'Open Venmo', href: pay.venmo.url, app: pay.venmo.app, primary: true, method: 'venmo' }]));
     }
     if (pay.zelle) {
       opts.appendChild(payCard('Zelle', [[{ text: 'In your bank app, send ' + amount + ' to ' }, { text: pay.zelle.to, strong: true }]],
