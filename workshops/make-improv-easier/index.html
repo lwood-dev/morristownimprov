@@ -716,15 +716,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       } else {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), 25000);
-        // Plain form encoding keeps this a "simple" request, so the browser doesn't need a CORS preflight
-        // (Apps Script web apps can't answer one).
-        const res = await fetch(SCRIPT_URL, {
-          method: 'POST',
-          body: new URLSearchParams({ name: name, email: email, website: $('suWebsite').value, workshop: WORKSHOP_ID }),
-          signal: controller.signal
-        });
-        clearTimeout(timer);
-        data = await res.json();
+        try {
+          // Plain form encoding keeps this a "simple" request, so the browser doesn't need a CORS preflight
+          // (Apps Script web apps can't answer one).
+          const res = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: new URLSearchParams({ name: name, email: email, website: $('suWebsite').value, workshop: WORKSHOP_ID }),
+            signal: controller.signal
+          });
+          data = await res.json(); // still covered by the timeout: aborting also cancels reading the body
+        } finally {
+          clearTimeout(timer);
+        }
       }
       if (data && data.ok) {
         data.name = data.name || name;
@@ -775,6 +778,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     $('signupAnother').addEventListener('click', (e) => {
       e.preventDefault();
       clearSignup();
+      if (Date.now() >= SIGNUPS_CLOSE && !previewMode) { showState('closed'); return; }
       $('signupForm').reset();
       showState('form');
       $('suName').focus();
@@ -785,16 +789,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     const now = Date.now();
     const forced = previewMode ? new URLSearchParams(location.search).get('state') : null;
+    const saved = forced ? null : loadSignup();
     if (forced === 'ended' || (!forced && now >= WORKSHOP_ENDS)) {
       showState('ended');
-    } else if (forced === 'closed' || (!forced && now >= SIGNUPS_CLOSE)) {
-      showState('closed');
     } else if (forced === 'done') {
       previewResponse('Sample Person', 'sample@example.com').then(renderDone);
+    } else if (saved && saved.ok) {
+      // Already signed up in this browser: keep showing how to pay, even after sign-ups close at noon,
+      // so anyone who hasn't paid yet can still find the details.
+      renderDone(saved);
+    } else if (forced === 'closed' || now >= SIGNUPS_CLOSE) {
+      showState('closed');
     } else {
-      const saved = loadSignup();
-      if (saved && saved.ok && !forced) renderDone(saved);
-      else showState('form');
+      showState('form');
     }
     initStickyBar();
   })();
