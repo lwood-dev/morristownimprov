@@ -2,13 +2,14 @@
 
 > A no-pressure, volunteer-led improv community in Morristown & Morris Plains, NJ. Monthly meet-ups, a monthly ticketed stage show (the Improv Jam), and free community give-back performances (Share the Laughs) at senior centers and retirement communities.
 
-Morristown Improv is not a business or a class — it's a community group. No experience is required to attend any event. The site is a single-page application (all sections live at https://www.morristownimprov.com/ under different URL hash fragments), so the homepage is the canonical source for all content described below.
+Morristown Improv is not a business or a class — it's a community group. No experience is required to attend any event. The site is a single-page application (all sections live at https://www.morristownimprov.com/ under different URL hash fragments), so the homepage is the canonical source for all content described below. The one exception is standalone workshop pages under /workshops/.
 
 ## Events
 
 - Monthly Meet-Up — donation-based, drop-in improv practice at Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ. Open to all skill levels including complete beginners.
 - Improv Jam — ticketed monthly stage show at Morristown Masonic Center, 39 Maple Ave, Morristown, NJ. Audience members can watch or volunteer to play. Tickets via Eventbrite.
 - Share the Laughs — free improv performances for senior centers and retirement communities, not open to the general public. Facilities can request a visit through the site.
+- Special workshop (one-time) — "How to Make Improv Easier" with guest instructor Jeff Kramer (founder of ComedySportz San Jose). Sunday, Nov 1, 2026, 1–3 PM at Morris Plains Jazzercise. $15, all levels. Details and sign-up: https://www.morristownimprov.com/workshops/make-improv-easier/
 
 ## Organization
 
@@ -26,6 +27,7 @@ Morristown Improv is not a business or a class — it's a community group. No ex
 - /#sponsors — sponsorship program and current sponsors
 - /#hireus — booking Share the Laughs or private events
 - /#media — photo gallery from past events
+- /workshops/make-improv-easier/ — standalone page for the Nov 1, 2026 workshop with Jeff Kramer (details and sign-up)
 
 ## Merch
 

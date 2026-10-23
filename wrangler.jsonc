@@ -1,0 +1,9 @@
+// Cloudflare Workers Builds config. The site is plain static files served from the repo root;
+// no build step. Newer wrangler versions no longer auto-detect this, so it's spelled out here.
+{
+  "name": "morristownimprov",
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    "directory": "."
+  }
+}

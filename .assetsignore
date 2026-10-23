@@ -1,0 +1,8 @@
+# Files in the repo that should not be served on the website
+.git
+.claude
+drafts
+*.md
+wrangler.jsonc
+.assetsignore
+.gitignore
