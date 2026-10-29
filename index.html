@@ -563,12 +563,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   /* Banner variant — for a wide 2:1 event flyer instead of a portrait photo. Shown on phones too
      (stacked on top), and only sits beside the text once there's room for it to stay legible. */
-  .feature-card.feature-banner .feature-photo { display: block; width: 100%; height: auto; min-height: 0; aspect-ratio: 2 / 1; object-fit: cover; object-position: center; }
+  /* Inset from the card outline so the flyer's own edges don't butt up against the border. */
+  .feature-card.feature-banner .feature-photo { display: block; width: calc(100% - 28px); height: auto; min-height: 0; margin: 14px 14px 0; aspect-ratio: 2 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-soft); }
   @media (min-width: 761px) {
     .feature-card.feature-banner { grid-template-columns: 1fr; }
+    .feature-card.feature-banner .feature-photo { width: calc(100% - 40px); margin: 20px 20px 0; }
   }
   @media (min-width: 981px) {
     .feature-card.feature-banner { grid-template-columns: minmax(0, 1.15fr) 1fr; align-items: center; }
+    .feature-card.feature-banner .feature-photo { width: calc(100% - 24px); margin: 24px 0 24px 24px; }
     .feature-card.feature-banner .feature-body { padding: 28px 32px; }
   }
 
