@@ -561,6 +561,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .feature-body h3 { font-size: 2.1rem; }
     .feature-body .btn { align-self: flex-start; }
   }
+  /* Banner variant — for a wide 2:1 event flyer instead of a portrait photo. Shown on phones too
+     (stacked on top), and only sits beside the text once there's room for it to stay legible. */
+  /* Inset from the card outline so the flyer's own edges don't butt up against the border. */
+  .feature-card.feature-banner .feature-photo { display: block; width: calc(100% - 28px); height: auto; min-height: 0; margin: 14px 14px 0; aspect-ratio: 2 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-soft); }
+  @media (min-width: 761px) {
+    .feature-card.feature-banner { grid-template-columns: 1fr; }
+    .feature-card.feature-banner .feature-photo { width: calc(100% - 40px); margin: 20px 20px 0; }
+  }
+  @media (min-width: 981px) {
+    .feature-card.feature-banner { grid-template-columns: minmax(0, 1.15fr) 1fr; align-items: center; }
+    .feature-card.feature-banner .feature-photo { width: calc(100% - 24px); margin: 24px 0 24px 24px; }
+    .feature-card.feature-banner .feature-body { padding: 28px 32px; }
+  }
 
   /* ============ EVENTS ============ */
   .page-header { padding-top: 64px; padding-bottom: 8px; }
@@ -990,6 +1003,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <section style="padding-top: 0;" class="feature-section">
+      <span class="eyebrow center-m">Featured Show</span>
+      <div class="window-card feature-card feature-banner" data-hide-after="2026-11-19T22:00:00-05:00">
+        <img class="feature-photo" src="images/feature-cornucopia-nov19.jpg" alt="A Cornucopia of Improv: ComedySportz and the Morristown Improv Jam, Thursday Nov 19 at Alpha Wave Studios in Whippany, NJ — $20 presale" loading="lazy">
+        <div class="feature-body">
+          <span class="feature-tag">Double Bill · One Night Only</span>
+          <h3>A Cornucopia of Improv</h3>
+          <p class="feature-with">ComedySportz + the Morristown Improv Jam</p>
+          <p class="feature-meta">Thu, Nov 19 · Doors 7:15 PM · Alpha Wave Studios, Whippany · $20 presale</p>
+          <p class="feature-hook">Two shows, one ticket. ComedySportz all-stars from NYC and NJ battle for your applause, then the Jam puts you on stage. New spot for this one — free parking, and concessions on sale.</p>
+          <a id="featureShowBtnHome" class="btn btn-primary" href="https://www.eventbrite.com/e/a-cornucopia-of-improv-comedysportz-morristown-improv-jam-tickets-2004077570963" target="_blank" rel="noopener" onclick="trackShowClick('home')">Get Tickets</a>
+        </div>
+      </div>
+    </section>
+
     <section style="padding-top: 0;">
       <span class="eyebrow center-m">Upcoming Events</span>
       <div class="up-next-carousel">
@@ -998,15 +1026,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="unc-slide">
               <div class="window-card up-next">
                 <div class="up-next-date">
-                  <div class="month" id="uncJamMonth">Oct</div>
-                  <div class="day" id="uncJamDay">22</div>
+                  <div class="month" id="uncJamMonth">Nov</div>
+                  <div class="day" id="uncJamDay">19</div>
                 </div>
                 <div class="up-next-info">
                   <span class="tag">Improv Jam</span>
-                  <h3 id="uncJamTitle">Improv Jam — October 2026</h3>
-                  <p style="margin:0; font-size: 0.92rem;" id="uncJamDetail">Doors 7:15 PM · Show 7:30 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></p>
+                  <h3 id="uncJamTitle">ComedySportz + Improv Jam</h3>
+                  <p style="margin:0; font-size: 0.92rem;" id="uncJamDetail">Doors 7:15 PM · ComedySportz 7:30 PM · Jam 8:45 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Alpha Wave Studios, 9 Whippany Rd, Whippany, NJ</a></p>
                 </div>
-                <a id="uncJamBtn" class="btn btn-primary" href="https://www.eventbrite.com/e/morristown-improv-monthly-improv-jam-tickets-2002957688364" target="_blank" rel="noopener">Get Tickets</a>
+                <a id="uncJamBtn" class="btn btn-primary" href="https://www.eventbrite.com/e/a-cornucopia-of-improv-comedysportz-morristown-improv-jam-tickets-2004077570963" target="_blank" rel="noopener">Get Tickets</a>
               </div>
             </div>
 
@@ -1089,25 +1117,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
         </div>
 
+        <div class="events-month feature-section">
+          <div class="events-month-head">
+            <span class="events-month-title">Featured Show</span>
+            <span class="events-month-tag confirmed">Tickets On Sale</span>
+          </div>
+          <div class="window-card feature-card feature-banner" data-hide-after="2026-11-19T22:00:00-05:00">
+            <img class="feature-photo" src="images/feature-cornucopia-nov19.jpg" alt="A Cornucopia of Improv: ComedySportz and the Morristown Improv Jam, Thursday Nov 19 at Alpha Wave Studios in Whippany, NJ — $20 presale" loading="lazy">
+            <div class="feature-body">
+              <span class="feature-tag">Double Bill · One Night Only</span>
+              <h3>A Cornucopia of Improv</h3>
+              <p class="feature-with">ComedySportz + the Morristown Improv Jam</p>
+              <p class="feature-meta">Thu, Nov 19 · Doors 7:15 PM · Alpha Wave Studios, Whippany · $20 presale</p>
+              <p class="feature-hook">Two shows, one ticket. ComedySportz all-stars from NYC and NJ battle for your applause, then the Jam puts you on stage. New spot for this one — free parking, and concessions on sale.</p>
+              <a id="featureShowBtnEvents" class="btn btn-primary" href="https://www.eventbrite.com/e/a-cornucopia-of-improv-comedysportz-morristown-improv-jam-tickets-2004077570963" target="_blank" rel="noopener" onclick="trackShowClick('events')">Get Tickets</a>
+            </div>
+          </div>
+        </div>
+
         <div class="events-month">
           <div class="events-month-head">
-            <span class="events-month-title">October 2026</span>
+            <span class="events-month-title">November 2026</span>
             <span class="events-month-tag confirmed">Confirmed</span>
           </div>
           <div class="event-grid">
             <div class="window-card event-card" id="jamEventCard">
               <div class="event-card-top">
                 <div>
-                  <span class="event-date-chip" id="jamDateChip">Oct 22</span>
+                  <span class="event-date-chip" id="jamDateChip">Nov 19</span>
                   <h3>Improv Jam</h3>
                 </div>
                 <span class="event-badge ticket">Ticketed</span>
               </div>
-              <p style="font-size:0.92rem;" id="jamThemeNote">New this month: Beer League Improv opens the night with a 20-minute long-form set, then the Jam runs as usual — anyone in the audience can step up and play short-form games, or just watch. One ticket covers both.</p>
+              <p style="font-size:0.92rem;" id="jamThemeNote">A double bill with ComedySportz: their all-stars from NYC and NJ open the night with competitive short-form, then the Jam takes over — anyone in the audience can step up and play, or just watch. One ticket covers both.</p>
               <ul class="event-meta">
-                <li><strong>Cost</strong> $15 presale / $20 at the door (cash/Venmo)</li>
-                <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></li>
-                <li id="jamWhenMeta"><strong>When</strong> Doors 7:15 PM · Beer League Improv 7:30 PM · Jam to follow until 9 PM</li>
+                <li id="jamCostMeta"><strong>Cost</strong> $20 presale through Nov 18 / $25 day of show</li>
+                <li id="jamWhereMeta"><strong>Where</strong> <span><a href="https://www.google.com/maps/search/?api=1&amp;query=Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Alpha Wave Studios, 9 Whippany Rd, Whippany, NJ</a> — new spot for this one, free parking</span></li>
+                <li id="jamWhenMeta"><strong>When</strong> Doors 7:15 PM · ComedySportz 7:30 PM · Jam 8:45–10 PM</li>
                 <li><strong>Note</strong> Limited tickets — we frequently sell out</li>
               </ul>
               <a id="jamTicketsBtn" class="btn btn-primary" href="https://www.eventbrite.com/o/morristown-improv-106542133661" target="_blank" rel="noopener">Get Tickets</a>
@@ -1127,45 +1173,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </ul>
               <a id="meetupRsvpBtn" class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/events/316918912/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener">RSVP on Meetup</a>
             </div>
+
+            <div class="window-card event-card">
+              <div class="event-card-top">
+                <h3>Share the Laughs</h3>
+                <span class="event-badge private">Private Events</span>
+              </div>
+              <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
+              <ul class="event-meta" id="stlUpcomingListNov"></ul>
+              <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Suggest a Facility</button>
+            </div>
           </div>
         </div>
 
         <div class="events-lookahead">
           <span class="eyebrow">Looking Ahead</span>
-
-          <div class="events-month">
-            <div class="events-month-head">
-              <span class="events-month-title">November 2026</span>
-            </div>
-            <div class="event-grid">
-              <div class="window-card event-card event-card-placeholder">
-                <h3>Improv Jam</h3>
-                <div class="event-card-dates">
-                  <span class="event-date-chip">Nov 19</span>
-                </div>
-                <span class="event-badge soon small">Tentative — Subject to Change</span>
-                <p style="font-size:0.92rem;">Our November Jam date at the Morristown Masonic Center is tentative — check back for the ticket link soon.</p>
-                <span class="btn btn-disabled">Tickets Coming Soon</span>
-              </div>
-
-              <div class="window-card event-card event-card-placeholder">
-                <h3>Monthly Meet-Up</h3>
-                <span class="event-badge tbd">Dates TBD</span>
-                <p style="font-size:0.92rem;">The November Meet-Up date hasn't been confirmed yet — check back soon.</p>
-                <span class="btn btn-disabled">Details Coming Soon</span>
-              </div>
-
-              <div class="window-card event-card">
-                <div class="event-card-top">
-                  <h3>Share the Laughs</h3>
-                  <span class="event-badge private">Private Events</span>
-                </div>
-                <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
-                <ul class="event-meta" id="stlUpcomingListNov"></ul>
-                <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Suggest a Facility</button>
-              </div>
-            </div>
-          </div>
 
           <div class="events-month">
             <div class="events-month-head">
@@ -1190,7 +1212,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="good-to-know">
         <span class="gtk-icon" aria-hidden="true">🅿️</span>
-        <p><strong>Good to know:</strong> For the Jams, parking in Morristown can be a sport of its own. We recommend the DeHart Street Garage, or arrive early and grab street parking — then swing by South Street for a drink before heading to Maple Ave.</p>
+        <p><strong>Good to know:</strong> For the Jams, parking in Morristown can be a sport of its own. We recommend the DeHart Street Garage, or arrive early and grab street parking — then swing by South Street for a drink before heading to Maple Ave.<span data-hide-after="2026-11-19T22:00:00-05:00"> Heads up: the Nov 19 double bill with ComedySportz is at Alpha Wave Studios in Whippany instead, with free parking on site.</span></p>
       </div>
 
       <p style="margin-top: 20px;"><a href="#" onclick="event.preventDefault(); goTo('media')" style="color: var(--amber); font-weight: 600; text-decoration: none;">📷 See photos from past Meet-Ups &amp; Jams →</a></p>
@@ -1925,14 +1947,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // Improv Jam — Liam only creates the next Eventbrite listing after the current one happens,
   // so this expires client-side rather than ever linking to a stale/past ticket page.
   const JAM_NEXT = {
-    dateISO: '2026-10-22',
-    dateChip: 'Oct 22',
-    whenLine: 'Doors 7:15 PM · Beer League Improv 7:30 PM · Jam to follow until 9 PM',
-    themeLine: 'New this month: Beer League Improv opens the night with a 20-minute long-form set, then the Jam runs as usual — anyone in the audience can step up and play short-form games, or just watch. One ticket covers both.',
-    eventId: '2002957688364',
-    eventUrl: 'https://www.eventbrite.com/e/morristown-improv-monthly-improv-jam-tickets-2002957688364'
+    dateISO: '2026-11-19',
+    dateChip: 'Nov 19',
+    homeTitle: 'ComedySportz + Improv Jam',
+    homeLead: 'Doors 7:15 PM · ComedySportz 7:30 PM · Jam 8:45 PM',
+    whenLine: 'Doors 7:15 PM · ComedySportz 7:30 PM · Jam 8:45–10 PM',
+    themeLine: 'A double bill with ComedySportz: their all-stars from NYC and NJ open the night with competitive short-form, then the Jam takes over — anyone in the audience can step up and play, or just watch. One ticket covers both.',
+    costLine: '$20 presale through Nov 18 / $25 day of show',
+    venue: { name: 'Alpha Wave Studios, 9 Whippany Rd, Whippany, NJ', mapQuery: 'Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ', note: 'new spot for this one, free parking' },
+    eventId: '2004077570963',
+    eventUrl: 'https://www.eventbrite.com/e/a-cornucopia-of-improv-comedysportz-morristown-improv-jam-tickets-2004077570963'
   };
   const JAM_DEFAULT_THEME = 'A live improv show where anyone in the audience can step up and play short-form games — or just watch.';
+  // The Jam's usual home — what the card falls back to once a one-off venue/price has passed.
+  const JAM_DEFAULT_COST = '$15 presale / $20 at the door (cash/Venmo)';
+  const JAM_DEFAULT_VENUE = { name: 'Morristown Masonic Center, 39 Maple Ave, Morristown, NJ', mapQuery: 'Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ' };
+
+  function venueLinkHtml(venue, color) {
+    return '<a href="https://www.google.com/maps/search/?api=1&amp;query=' + venue.mapQuery + '" target="_blank" rel="noopener" style="color: ' + color + '; text-decoration: underline; text-decoration-color: var(--line-strong);">' + venue.name + '</a>';
+  }
   const EVENTBRITE_ORG_URL = 'https://www.eventbrite.com/o/morristown-improv-106542133661';
 
   function formatDateBox(iso) {
@@ -2003,6 +2036,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const chip = document.getElementById('jamDateChip');
     const theme = document.getElementById('jamThemeNote');
     const when = document.getElementById('jamWhenMeta');
+    const cost = document.getElementById('jamCostMeta');
+    const where = document.getElementById('jamWhereMeta');
     const btn = document.getElementById('jamTicketsBtn');
 
     // Home carousel slide
@@ -2016,18 +2051,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (chip) chip.textContent = JAM_NEXT.dateChip;
       if (theme) theme.textContent = JAM_NEXT.themeLine;
       if (when) when.innerHTML = '<strong>When</strong> ' + JAM_NEXT.whenLine;
+      if (cost) cost.innerHTML = '<strong>Cost</strong> ' + (JAM_NEXT.costLine || JAM_DEFAULT_COST);
+      if (where) where.innerHTML = '<strong>Where</strong> <span>' + venueLinkHtml(JAM_NEXT.venue || JAM_DEFAULT_VENUE, 'var(--paper-dim)') + (JAM_NEXT.venue && JAM_NEXT.venue.note ? ' — ' + JAM_NEXT.venue.note : '') + '</span>';
       if (btn) { btn.href = JAM_NEXT.eventUrl; btn.textContent = 'Get Tickets'; }
       if (homeMonth) homeMonth.textContent = box.month;
       if (homeDay) homeDay.textContent = box.day;
-      if (homeTitle) homeTitle.textContent = 'Improv Jam';
-      if (homeDetail) homeDetail.innerHTML = 'Doors 7:15 PM · Show 7:30 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a>';
+      if (homeTitle) homeTitle.textContent = JAM_NEXT.homeTitle || 'Improv Jam';
+      if (homeDetail) homeDetail.innerHTML = (JAM_NEXT.homeLead || 'Doors 7:15 PM · Show 7:30 PM') + ' · ' + venueLinkHtml(JAM_NEXT.venue || JAM_DEFAULT_VENUE, 'var(--paper)');
       if (homeBtn) { homeBtn.href = JAM_NEXT.eventUrl; homeBtn.textContent = 'Get Tickets'; }
-      if (btn) wireEventbriteTrigger('jamTicketsBtn');
-      if (homeBtn) wireEventbriteTrigger('uncJamBtn');
+      ['jamTicketsBtn', 'uncJamBtn', 'featureShowBtnHome', 'featureShowBtnEvents'].forEach(function (id) {
+        if (document.getElementById(id)) wireEventbriteTrigger(id);
+      });
     } else {
       if (chip) chip.textContent = 'Monthly';
       if (theme) theme.textContent = JAM_DEFAULT_THEME;
       if (when) when.innerHTML = '<strong>When</strong> Next date TBA — posted monthly on Eventbrite';
+      if (cost) cost.innerHTML = '<strong>Cost</strong> ' + JAM_DEFAULT_COST;
+      if (where) where.innerHTML = '<strong>Where</strong> <span>' + venueLinkHtml(JAM_DEFAULT_VENUE, 'var(--paper-dim)') + '</span>';
       if (btn) { btn.href = EVENTBRITE_ORG_URL; btn.textContent = 'See Upcoming Jams'; }
       if (homeMonth) homeMonth.textContent = box.month;
       if (homeDay) homeDay.textContent = box.day;
@@ -2038,15 +2078,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   initJamCard();
 
-  // Featured workshop — hides itself (and its section heading) once the workshop is over.
+  // Featured workshop/show — each feature card hides itself (and its section heading) once the
+  // event is over; any other element with data-hide-after (e.g. a one-off note) just hides itself.
   function initFeatureCards() {
-    document.querySelectorAll('.feature-card[data-hide-after]').forEach(function (card) {
-      if (Date.now() >= Date.parse(card.dataset.hideAfter)) {
-        const section = card.closest('.feature-section');
-        (section || card).hidden = true;
-        document.querySelectorAll('.hero.feature-on').forEach(function (h) { h.classList.remove('feature-on'); });
+    document.querySelectorAll('[data-hide-after]').forEach(function (el) {
+      if (Date.now() >= Date.parse(el.dataset.hideAfter)) {
+        const section = el.classList.contains('feature-card') ? el.closest('.feature-section') : null;
+        (section || el).hidden = true;
       }
     });
+    // Only give the phone hero back its photo carousel once nothing on Home is featured anymore.
+    if (!document.querySelector('#page-home .feature-section:not([hidden])')) {
+      document.querySelectorAll('.hero.feature-on').forEach(function (h) { h.classList.remove('feature-on'); });
+    }
   }
   initFeatureCards();
 
@@ -2113,6 +2157,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function trackFeatureClick(where) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'featured_workshop_click', workshop_id: 'make-improv-easier', placement: where });
+  }
+
+  function trackShowClick(where) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'featured_show_click', show_id: 'cornucopia-' + JAM_NEXT.dateISO, placement: where });
   }
 
   // Monthly Meet-Up — same idea as the Jam: once the date passes, fall back to the
