@@ -539,6 +539,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ============ FEATURED WORKSHOP CARD (phone-first) ============ */
   .feature-card { padding: 0; display: grid; grid-template-columns: 1fr; border-color: rgba(255,210,63,0.45); background: linear-gradient(160deg, rgba(255,210,63,0.08), var(--ink-soft) 55%); }
   .feature-card[hidden] { display: none; }
+  /* Dated Events-page cards and month blocks hide themselves after the event (see initFeatureCards). */
+  .event-card[hidden], .events-month[hidden] { display: none; }
   .feature-photo { display: none; }
   .feature-body { padding: 22px 20px 26px; display: flex; flex-direction: column; gap: 10px; }
   .feature-tag { align-self: flex-start; background: var(--amber); color: var(--ink); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
@@ -1032,7 +1034,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="up-next-info">
                   <span class="tag">Improv Jam</span>
                   <h3 id="uncJamTitle">ComedySportz + Improv Jam</h3>
-                  <p style="margin:0; font-size: 0.92rem;" id="uncJamDetail">Doors 7:15 PM · ComedySportz 7:30 PM · Jam 8:45 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Alpha Wave Studios, 9 Whippany Rd, Whippany, NJ</a></p>
+                  <p style="margin:0; font-size: 0.92rem;" id="uncJamDetail">Doors 7:15 PM · ComedySportz 7:30 PM · Jam 8:45 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Alpha Wave Studios, 9 Whippany Rd, Building A1, Suite 4, Whippany, NJ</a></p>
                 </div>
                 <a id="uncJamBtn" class="btn btn-primary" href="https://www.eventbrite.com/e/a-cornucopia-of-improv-comedysportz-morristown-improv-jam-tickets-2004077570963" target="_blank" rel="noopener">Get Tickets</a>
               </div>
@@ -1041,28 +1043,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="unc-slide">
               <div class="window-card up-next">
                 <div class="up-next-date">
-                  <div class="month" id="uncMeetupMonth">Oct</div>
-                  <div class="day" id="uncMeetupDay">24</div>
+                  <div class="month" id="uncMeetupMonth">Nov</div>
+                  <div class="day" id="uncMeetupDay">21</div>
                 </div>
                 <div class="up-next-info">
                   <span class="tag">Monthly Meet-Up</span>
-                  <h3 id="uncMeetupTitle">Morristown Improv Meet-Up — October 2026</h3>
+                  <h3 id="uncMeetupTitle">Morristown Improv Meet-Up — November 2026</h3>
                   <p style="margin:0; font-size: 0.92rem;" id="uncMeetupDetail">Sat 1–4 PM · <a href="https://www.google.com/maps/search/?api=1&amp;query=Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave</a></p>
                 </div>
-                <a id="uncMeetupBtn" class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/events/316918912/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener">RSVP on Meetup</a>
+                <a id="uncMeetupBtn" class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/" target="_blank" rel="noopener">See Upcoming Meet-Ups</a>
               </div>
             </div>
 
             <div class="unc-slide">
               <div class="window-card up-next">
                 <div class="up-next-date">
-                  <div class="month" id="uncStlMonth">Sep</div>
-                  <div class="day" id="uncStlDay">30</div>
+                  <div class="month" id="uncStlMonth">TBA</div>
+                  <div class="day" id="uncStlDay"></div>
                 </div>
                 <div class="up-next-info">
                   <span class="tag">Share the Laughs · Private Events</span>
-                  <h3 id="uncStlTitle">Chatham Senior Center</h3>
-                  <p style="margin:0; font-size: 0.92rem;" id="uncStlDetail">Free community give-back show — not open to the public.</p>
+                  <h3 id="uncStlTitle">New Dates Coming Soon</h3>
+                  <p style="margin:0; font-size: 0.92rem;" id="uncStlDetail">We're always booking new senior centers and community spaces.</p>
                 </div>
                 <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Know a Facility We Should Visit?</button>
               </div>
@@ -1135,13 +1137,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
-        <div class="events-month">
+        <!-- Each month block and dated card hides itself once its event is over (data-hide-after). -->
+        <div class="events-month" data-hide-after="2026-11-21T16:00:00-05:00">
           <div class="events-month-head">
             <span class="events-month-title">November 2026</span>
             <span class="events-month-tag confirmed">Confirmed</span>
           </div>
           <div class="event-grid">
-            <div class="window-card event-card" id="jamEventCard">
+            <div class="window-card event-card" id="jamEventCard" data-hide-after="2026-11-19T22:00:00-05:00">
               <div class="event-card-top">
                 <div>
                   <span class="event-date-chip" id="jamDateChip">Nov 19</span>
@@ -1152,26 +1155,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p style="font-size:0.92rem;" id="jamThemeNote">A double bill with ComedySportz: their all-stars from NYC and NJ open the night with competitive short-form, then the Jam takes over — anyone in the audience can step up and play, or just watch. One ticket covers both.</p>
               <ul class="event-meta">
                 <li id="jamCostMeta"><strong>Cost</strong> $20 presale through Nov 18 / $25 day of show</li>
-                <li id="jamWhereMeta"><strong>Where</strong> <span><a href="https://www.google.com/maps/search/?api=1&amp;query=Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Alpha Wave Studios, 9 Whippany Rd, Whippany, NJ</a> — new spot for this one, free parking</span></li>
+                <li id="jamWhereMeta"><strong>Where</strong> <span><a href="https://www.google.com/maps/search/?api=1&amp;query=Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Alpha Wave Studios, 9 Whippany Rd, Building A1, Suite 4, Whippany, NJ</a> — new spot for this one, free parking</span></li>
                 <li id="jamWhenMeta"><strong>When</strong> Doors 7:15 PM · ComedySportz 7:30 PM · Jam 8:45–10 PM</li>
                 <li><strong>Note</strong> Limited tickets — we frequently sell out</li>
               </ul>
               <a id="jamTicketsBtn" class="btn btn-primary" href="https://www.eventbrite.com/o/morristown-improv-106542133661" target="_blank" rel="noopener">Get Tickets</a>
             </div>
 
-            <div class="window-card event-card" id="meetupEventCard">
+            <div class="window-card event-card" id="meetupEventCard" data-hide-after="2026-11-21T16:00:00-05:00">
               <div class="event-card-top">
                 <div>
-                  <span class="event-date-chip" id="meetupDateChip">Oct 24</span>
+                  <span class="event-date-chip" id="meetupDateChip">Nov 21</span>
                   <h3>Monthly Meet-Up</h3>
                 </div>
               </div>
               <p style="font-size:0.92rem;">Same format as always — about 2 to 2.5 hours of improv games, then anyone who wants can head around the corner to Tiff's for food and socializing. All levels welcome; please RSVP so we can plan for head count.</p>
               <ul class="event-meta">
                 <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ</a></li>
-                <li id="meetupWhenMeta"><strong>When</strong> Saturday, 1–4 PM</li>
+                <li id="meetupWhenMeta"><strong>When</strong> Saturday, Nov 21 · 1–4 PM</li>
               </ul>
-              <a id="meetupRsvpBtn" class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/events/316918912/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener">RSVP on Meetup</a>
+              <a id="meetupRsvpBtn" class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/" target="_blank" rel="noopener">See Upcoming Meet-Ups</a>
             </div>
 
             <div class="window-card event-card">
@@ -1186,12 +1189,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
+        <div class="events-month">
+          <div class="events-month-head">
+            <span class="events-month-title">December 2026</span>
+            <span class="events-month-tag confirmed">Confirmed</span>
+          </div>
+          <div class="event-grid">
+            <div class="window-card event-card" data-hide-after="2026-12-12T16:00:00-05:00">
+              <div class="event-card-top">
+                <div>
+                  <span class="event-date-chip">Dec 12</span>
+                  <h3>Monthly Meet-Up</h3>
+                </div>
+              </div>
+              <p style="font-size:0.92rem;">Same format as always — about 2 to 2.5 hours of improv games, then anyone who wants can head around the corner to Tiff's for food and socializing. All levels welcome; please RSVP so we can plan for head count.</p>
+              <ul class="event-meta">
+                <li><strong>Where</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Jazzercise+39+E+Hanover+Ave+Morris+Plains+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morris Plains Jazzercise, 39 E Hanover Ave, Morris Plains, NJ</a></li>
+                <li><strong>When</strong> Saturday, Dec 12 · 1–4 PM</li>
+              </ul>
+              <a class="btn btn-primary" href="https://www.meetup.com/morristown-improv-meet-up/" target="_blank" rel="noopener">See Upcoming Meet-Ups</a>
+            </div>
+
+            <div class="window-card event-card" data-hide-after="2026-12-17T22:00:00-05:00">
+              <div class="event-card-top">
+                <div>
+                  <span class="event-date-chip">Dec 17</span>
+                  <h3>Improv Jam</h3>
+                </div>
+                <span class="event-badge ticket">Ticketed</span>
+              </div>
+              <p style="font-size:0.92rem;">A live improv show where anyone in the audience can step up and play short-form games — or just watch.</p>
+              <ul class="event-meta">
+                <li><strong>Cost</strong> Tickets pending — price TBA</li>
+                <li><strong>Where</strong> <span><a href="https://www.google.com/maps/search/?api=1&amp;query=Morristown+Masonic+Center+39+Maple+Ave+Morristown+NJ" target="_blank" rel="noopener" style="color: var(--paper-dim); text-decoration: underline; text-decoration-color: var(--line-strong);">Morristown Masonic Center, 39 Maple Ave, Morristown, NJ</a></span></li>
+                <li><strong>When</strong> Thursday, Dec 17 · Time TBA</li>
+              </ul>
+              <a class="btn btn-primary" href="https://www.eventbrite.com/o/morristown-improv-106542133661" target="_blank" rel="noopener">See Upcoming Jams</a>
+            </div>
+
+            <div class="window-card event-card">
+              <div class="event-card-top">
+                <h3>Share the Laughs</h3>
+                <span class="event-badge private">Private Events</span>
+              </div>
+              <p style="font-size:0.92rem;">Free give-back shows for senior centers &amp; retirement communities — not open to the public.</p>
+              <ul class="event-meta" id="stlUpcomingListDec"></ul>
+              <button class="btn btn-violet" onclick="goTo('involved', 'bring-us')">Suggest a Facility</button>
+            </div>
+          </div>
+        </div>
+
         <div class="events-lookahead">
           <span class="eyebrow">Looking Ahead</span>
 
           <div class="events-month">
             <div class="events-month-head">
-              <span class="events-month-title">December 2026 – February 2027</span>
+              <span class="events-month-title">January – February 2027</span>
             </div>
             <div class="event-grid">
               <div class="window-card event-card">
@@ -1944,9 +1997,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   initHeroCarousel();
 
+  // Today's date in the visitor's own time zone (YYYY-MM-DD). toISOString() is UTC, which in
+  // New Jersey rolls over to "tomorrow" at 7–8 PM — right when a Jam is starting.
+  function localTodayISO() {
+    const d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
   // Improv Jam — Liam only creates the next Eventbrite listing after the current one happens,
   // so this expires client-side rather than ever linking to a stale/past ticket page.
-  const JAM_NEXT = {
+  // JAM_UPCOMING is in date order; the first one that hasn't passed is "next". An entry with no
+  // eventUrl shows "Tickets pending" and points to the Eventbrite organizer page instead.
+  const JAM_NOV19 = {
     dateISO: '2026-11-19',
     dateChip: 'Nov 19',
     homeTitle: 'ComedySportz + Improv Jam',
@@ -1954,10 +2016,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     whenLine: 'Doors 7:15 PM · ComedySportz 7:30 PM · Jam 8:45–10 PM',
     themeLine: 'A double bill with ComedySportz: their all-stars from NYC and NJ open the night with competitive short-form, then the Jam takes over — anyone in the audience can step up and play, or just watch. One ticket covers both.',
     costLine: '$20 presale through Nov 18 / $25 day of show',
-    venue: { name: 'Alpha Wave Studios, 9 Whippany Rd, Whippany, NJ', mapQuery: 'Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ', note: 'new spot for this one, free parking' },
+    venue: { name: 'Alpha Wave Studios, 9 Whippany Rd, Building A1, Suite 4, Whippany, NJ', mapQuery: 'Alpha+Wave+Studios+9+Whippany+Road+Whippany+NJ', note: 'new spot for this one, free parking' },
     eventId: '2004077570963',
     eventUrl: 'https://www.eventbrite.com/e/a-cornucopia-of-improv-comedysportz-morristown-improv-jam-tickets-2004077570963'
   };
+  const JAM_UPCOMING = [
+    JAM_NOV19,
+    {
+      dateISO: '2026-12-17',
+      dateChip: 'Dec 17',
+      homeLead: 'Time TBA',
+      whenLine: 'Thursday, Dec 17 · Time TBA',
+      costLine: 'Tickets pending — price TBA'
+      // Back at the usual home (JAM_DEFAULT_VENUE). Add eventId + eventUrl once the Eventbrite listing is up.
+    }
+  ];
+  const JAM_NEXT = JAM_UPCOMING.find(function (j) { return j.dateISO >= localTodayISO(); }) || null;
   const JAM_DEFAULT_THEME = 'A live improv show where anyone in the audience can step up and play short-form games — or just watch.';
   // The Jam's usual home — what the card falls back to once a one-off venue/price has passed.
   const JAM_DEFAULT_COST = '$15 presale / $20 at the door (cash/Venmo)';
@@ -2001,11 +2075,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     return closeBtn;
   }
 
-  function wireEventbriteTrigger(btnId) {
+  function wireEventbriteTrigger(btnId, eventId) {
     if (window.EBWidgets) {
       window.EBWidgets.createWidget({
         widgetType: 'checkout',
-        eventId: JAM_NEXT.eventId,
+        eventId: eventId,
         modal: true,
         modalTriggerElementId: btnId
       });
@@ -2028,9 +2102,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   function initJamCard() {
-    const todayISO = new Date().toISOString().slice(0, 10);
-    const isUpcoming = todayISO <= JAM_NEXT.dateISO;
+    const isUpcoming = !!JAM_NEXT;
     const box = isUpcoming ? formatDateBox(JAM_NEXT.dateISO) : { month: 'New', day: 'TBA' };
+    // Ticket links: the next Jam's own Eventbrite page once it exists, else the organizer page.
+    const ticketUrl = isUpcoming && JAM_NEXT.eventUrl ? JAM_NEXT.eventUrl : EVENTBRITE_ORG_URL;
+    const ticketText = isUpcoming && JAM_NEXT.eventUrl ? 'Get Tickets' : 'See Upcoming Jams';
 
     // Events page card
     const chip = document.getElementById('jamDateChip');
@@ -2049,19 +2125,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     if (isUpcoming) {
       if (chip) chip.textContent = JAM_NEXT.dateChip;
-      if (theme) theme.textContent = JAM_NEXT.themeLine;
+      if (theme) theme.textContent = JAM_NEXT.themeLine || JAM_DEFAULT_THEME;
       if (when) when.innerHTML = '<strong>When</strong> ' + JAM_NEXT.whenLine;
       if (cost) cost.innerHTML = '<strong>Cost</strong> ' + (JAM_NEXT.costLine || JAM_DEFAULT_COST);
       if (where) where.innerHTML = '<strong>Where</strong> <span>' + venueLinkHtml(JAM_NEXT.venue || JAM_DEFAULT_VENUE, 'var(--paper-dim)') + (JAM_NEXT.venue && JAM_NEXT.venue.note ? ' — ' + JAM_NEXT.venue.note : '') + '</span>';
-      if (btn) { btn.href = JAM_NEXT.eventUrl; btn.textContent = 'Get Tickets'; }
+      if (btn) { btn.href = ticketUrl; btn.textContent = ticketText; }
       if (homeMonth) homeMonth.textContent = box.month;
       if (homeDay) homeDay.textContent = box.day;
       if (homeTitle) homeTitle.textContent = JAM_NEXT.homeTitle || 'Improv Jam';
       if (homeDetail) homeDetail.innerHTML = (JAM_NEXT.homeLead || 'Doors 7:15 PM · Show 7:30 PM') + ' · ' + venueLinkHtml(JAM_NEXT.venue || JAM_DEFAULT_VENUE, 'var(--paper)');
-      if (homeBtn) { homeBtn.href = JAM_NEXT.eventUrl; homeBtn.textContent = 'Get Tickets'; }
-      ['jamTicketsBtn', 'uncJamBtn', 'featureShowBtnHome', 'featureShowBtnEvents'].forEach(function (id) {
-        if (document.getElementById(id)) wireEventbriteTrigger(id);
-      });
+      if (homeBtn) { homeBtn.href = ticketUrl; homeBtn.textContent = ticketText; }
+      if (JAM_NEXT.eventId) {
+        ['jamTicketsBtn', 'uncJamBtn'].forEach(function (id) {
+          if (document.getElementById(id)) wireEventbriteTrigger(id, JAM_NEXT.eventId);
+        });
+      }
     } else {
       if (chip) chip.textContent = 'Monthly';
       if (theme) theme.textContent = JAM_DEFAULT_THEME;
@@ -2077,6 +2155,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
   initJamCard();
+
+  // The Nov 19 Featured Show buttons always open the Nov 19 checkout (the cards hide after the show).
+  if (localTodayISO() <= JAM_NOV19.dateISO) {
+    ['featureShowBtnHome', 'featureShowBtnEvents'].forEach(function (id) {
+      if (document.getElementById(id)) wireEventbriteTrigger(id, JAM_NOV19.eventId);
+    });
+  }
 
   // Featured workshop/show — each feature card hides itself (and its section heading) once the
   // event is over; any other element with data-hide-after (e.g. a one-off note) just hides itself.
@@ -2161,17 +2246,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   function trackShowClick(where) {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'featured_show_click', show_id: 'cornucopia-' + JAM_NEXT.dateISO, placement: where });
+    window.dataLayer.push({ event: 'featured_show_click', show_id: 'cornucopia-' + JAM_NOV19.dateISO, placement: where });
   }
 
-  // Monthly Meet-Up — same idea as the Jam: once the date passes, fall back to the
-  // Meetup group page instead of leaving an RSVP link to a past event.
-  const MEETUP_NEXT = { dateISO: '2026-10-24' };
+  // Monthly Meet-Up — same idea as the Jam: in date order, the first one that hasn't passed is
+  // "next". Add rsvpUrl once a date is posted on Meetup; until then the button goes to the group
+  // page. After the last date, fall back to the group page instead of a past event.
+  const MEETUP_UPCOMING = [
+    { dateISO: '2026-11-21' },
+    { dateISO: '2026-12-12' }
+  ];
   const MEETUP_GROUP_URL = 'https://www.meetup.com/morristown-improv-meet-up/';
 
   function initMeetupCard() {
-    const todayISO = new Date().toISOString().slice(0, 10);
-    if (todayISO <= MEETUP_NEXT.dateISO) return;
+    const next = MEETUP_UPCOMING.find(function (m) { return m.dateISO >= localTodayISO(); });
 
     const chip = document.getElementById('meetupDateChip');
     const when = document.getElementById('meetupWhenMeta');
@@ -2181,6 +2269,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const homeTitle = document.getElementById('uncMeetupTitle');
     const homeDetail = document.getElementById('uncMeetupDetail');
     const homeBtn = document.getElementById('uncMeetupBtn');
+
+    if (next) {
+      const d = new Date(next.dateISO + 'T00:00:00');
+      const box = formatDateBox(next.dateISO);
+      const shortDate = box.month + ' ' + box.day;
+      const btnUrl = next.rsvpUrl || MEETUP_GROUP_URL;
+      const btnText = next.rsvpUrl ? 'RSVP on Meetup' : 'See Upcoming Meet-Ups';
+      if (chip) chip.textContent = shortDate;
+      if (when) when.innerHTML = '<strong>When</strong> ' + d.toLocaleDateString('en-US', { weekday: 'long' }) + ', ' + shortDate + ' · 1–4 PM';
+      if (btn) { btn.href = btnUrl; btn.textContent = btnText; }
+      if (homeMonth) homeMonth.textContent = box.month;
+      if (homeDay) homeDay.textContent = box.day;
+      if (homeTitle) homeTitle.textContent = 'Morristown Improv Meet-Up — ' + d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      if (homeBtn) { homeBtn.href = btnUrl; homeBtn.textContent = btnText; }
+      return;
+    }
 
     if (chip) chip.textContent = 'Monthly';
     if (when) when.innerHTML = '<strong>When</strong> Next date TBA — posted on Meetup';
@@ -2205,7 +2309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function renderSTLGroup(listId, monthStartISO, monthEndISO) {
     const list = document.getElementById(listId);
     if (!list) return;
-    const todayISO = new Date().toISOString().slice(0, 10);
+    const todayISO = localTodayISO();
     const items = STL_UPCOMING.filter(e => e.dateISO >= todayISO && e.dateISO >= monthStartISO && e.dateISO < monthEndISO);
     list.innerHTML = items.length
       ? items.map(e => '<li><strong>' + e.label + '</strong> ' + e.venue + '</li>').join('')
@@ -2213,11 +2317,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   function initSTLList() {
-    const todayISO = new Date().toISOString().slice(0, 10);
+    const todayISO = localTodayISO();
     const upcoming = STL_UPCOMING.filter(e => e.dateISO >= todayISO);
 
     renderSTLGroup('stlUpcomingListNov', '2026-11-01', '2026-12-01');
-    renderSTLGroup('stlUpcomingListWinter', '2026-12-01', '2027-03-01');
+    renderSTLGroup('stlUpcomingListDec', '2026-12-01', '2027-01-01');
+    renderSTLGroup('stlUpcomingListWinter', '2027-01-01', '2027-03-01');
 
     const homeMonth = document.getElementById('uncStlMonth');
     const homeDay = document.getElementById('uncStlDay');
