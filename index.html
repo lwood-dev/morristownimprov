@@ -1995,6 +1995,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     eventId: '2004077570963'
   };
 
+  // Stamp a home "Up Next" carousel slide with the date it's showing (YYYY-MM-DD, or '' for TBA),
+  // so sortUpNextSlides() can put the slides in date order. elId is any element inside the slide.
+  function setSlideDate(elId, iso) {
+    const el = document.getElementById(elId);
+    const slide = el && el.closest('.unc-slide');
+    if (slide) slide.dataset.date = iso || '';
+  }
+
   // Improv Jam — Liam only creates the next Eventbrite listing after the current one happens,
   // so this expires client-side rather than ever linking to a stale/past ticket page.
   // JAM_UPCOMING is in date order; the first one that hasn't passed is "next". An entry with no
@@ -2082,6 +2090,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function initJamCard() {
     const isUpcoming = !!JAM_NEXT;
     const box = isUpcoming ? formatDateBox(JAM_NEXT.dateISO) : { month: 'New', day: 'TBA' };
+    setSlideDate('uncJamTitle', isUpcoming ? JAM_NEXT.dateISO : '');
     // Ticket links: the next Jam's own Eventbrite page once it exists, else the organizer page.
     const ticketUrl = isUpcoming && JAM_NEXT.eventUrl ? JAM_NEXT.eventUrl : EVENTBRITE_ORG_URL;
     const ticketText = isUpcoming && JAM_NEXT.eventUrl ? 'Get Tickets' : 'See Upcoming Jams';
@@ -2238,6 +2247,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   function initMeetupCard() {
     const next = MEETUP_UPCOMING.find(function (m) { return m.dateISO >= localTodayISO(); });
+    setSlideDate('uncMeetupTitle', next ? next.dateISO : '');
 
     const chip = document.getElementById('meetupDateChip');
     const when = document.getElementById('meetupWhenMeta');
@@ -2297,6 +2307,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function initSTLList() {
     const todayISO = localTodayISO();
     const upcoming = STL_UPCOMING.filter(e => e.dateISO >= todayISO);
+    setSlideDate('uncStlTitle', upcoming.length ? upcoming[0].dateISO : '');
 
     renderSTLGroup('stlUpcomingListNov', '2026-11-01', '2026-12-01');
     renderSTLGroup('stlUpcomingListDec', '2026-12-01', '2027-01-01');
@@ -2323,6 +2334,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
   initSTLList();
+
+  // Put the home "Up Next" slides soonest-first, using the dates stamped above. TBA slides (no date)
+  // go last. Runs before initUpNextCarousel so its dots and swipe order match.
+  function sortUpNextSlides() {
+    const track = document.getElementById('uncTrack');
+    if (!track) return;
+    const slides = Array.from(track.querySelectorAll('.unc-slide'));
+    const key = function (s) { return s.dataset.date || '9999-12-31'; };
+    slides.sort(function (a, b) { return key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : 0; });
+    slides.forEach(function (s) { track.appendChild(s); });
+  }
+  sortUpNextSlides();
 
   // Home "Up Next" carousel — swipe (touch), arrow buttons, and dot navigation, all wrapping around.
   function initUpNextCarousel() {
