@@ -1767,6 +1767,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<!-- ============================================ EVENT POLICIES ============================================ -->
+<main class="page" id="page-policies">
+  <div class="wrap">
+    <section class="page-header">
+      <span class="eyebrow">Event Policies</span>
+      <h2>The fine print.</h2>
+    </section>
+
+    <section style="padding-top: 0;">
+      <div class="story-block">
+        <h3 style="font-size:1.05rem; color: var(--amber); margin-bottom: 16px;">Photos, video and audio</h3>
+        <p>Our events may be photographed, filmed and recorded. By attending, you consent to appearing in photos, video and audio that Morristown Improv and the venue may use on websites, social media and email. If you'd rather not be included, tell a host at the event and we'll do our best to leave you out.</p>
+      </div>
+      <div class="story-block">
+        <h3 style="font-size:1.05rem; color: var(--amber); margin-bottom: 16px;">Participation and risk</h3>
+        <p>Taking part in a Jam or workshop is voluntary. Improv is unscripted and often physical, and stages can have edges, stairs, cables and equipment. By participating, you acknowledge these risks and accept responsibility for your own safety and conduct. Please follow the hosts' instructions, stay back from the stage edge, use the stairs, and leave lights, microphones and other equipment alone.</p>
+      </div>
+      <div class="story-block">
+        <h3 style="font-size:1.05rem; color: var(--amber); margin-bottom: 16px;">Code of conduct</h3>
+        <p>We want every event to be a welcoming place to play. Treat performers, audience members, hosts and venue staff with respect. Harassment, discrimination, bullying and unwanted physical contact aren't welcome. Respect other performers' boundaries, and stop if asked. Hosts may ask anyone to leave the stage or the event.</p>
+      </div>
+      <div class="story-block">
+        <h3 style="font-size:1.05rem; color: var(--amber); margin-bottom: 16px;">Questions</h3>
+        <p>Contact us at <a href="mailto:morristownimprov@gmail.com" style="color: var(--amber); font-weight: 600;">morristownimprov@gmail.com</a>.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -1796,7 +1825,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Morristown Improv. A volunteer-led, not-for-profit collective.</span>
+      <span>© 2026 Morristown Improv. A volunteer-led, not-for-profit collective. · <a href="#policies" onclick="event.preventDefault(); goTo('policies')" style="color: inherit;">Event Policies</a></span>
       <span>Morristown &amp; Morris Plains, NJ</span>
     </div>
   </div>
@@ -1804,7 +1833,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
 <script>
-  const VALID_PAGES = ['home', 'events', 'about', 'involved', 'sponsors', 'team', 'media', 'hireus'];
+  const VALID_PAGES = ['home', 'events', 'about', 'involved', 'sponsors', 'team', 'media', 'hireus', 'policies'];
   const ORG_EMAIL = 'morristownimprov@gmail.com';
 
   function goTo(pageId, scrollToId, skipHistory) {
